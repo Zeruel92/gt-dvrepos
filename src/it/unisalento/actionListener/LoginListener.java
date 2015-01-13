@@ -19,7 +19,7 @@ public class LoginListener implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		String actionCommand=arg0.getActionCommand();
 		if(actionCommand.equals(actionLogin)){
-			//Scrivere funzione di Login
+			//TODO Scrivere funzione di Login
 		}
 		else{
 			Registrazione r=new Registrazione();
