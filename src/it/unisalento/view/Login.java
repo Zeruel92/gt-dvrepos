@@ -40,6 +40,7 @@ public class Login extends JFrame {
 		this.register.setActionCommand(loginListener.ACTION_REGISTER);
 		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 		this.setVisible(true);
+		this.setResizable(false);
 		this.pack();
 	}
 	public String getUsername(){

@@ -32,7 +32,7 @@ public class DBManager {
 	        connect= (Connection)DriverManager.getConnection(url);
 			System.out.println("Connessione al DB aperta");
 		}catch(Exception e){
-			JOptionPane.showMessageDialog(null,"Server non disponibile riprovare piu' dopo");
+			JOptionPane.showMessageDialog(null,"Server MYSQL non disponibile riprovare piu tardi");
 			e.printStackTrace();
 		}
 		
