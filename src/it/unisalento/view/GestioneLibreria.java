@@ -1,5 +1,6 @@
 package it.unisalento.view;
-import javax.swing.*;
+
+import javax.swing.JPanel;
 
 public class GestioneLibreria extends JPanel {
 

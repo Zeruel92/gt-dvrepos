@@ -1,6 +1,6 @@
 package it.unisalento.model;
 
-public class Utente {
+public class Utente{
 	private int idutente;
 	private String nome;
 	private String cognome;
@@ -97,3 +97,4 @@ public class Utente {
 	}
 	
 }
+

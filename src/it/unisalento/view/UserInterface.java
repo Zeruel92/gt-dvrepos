@@ -1,7 +1,9 @@
 package it.unisalento.view;
-import it.unisalento.model.Utente;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
+
+import it.unisalento.model.Utente;
 
 public class UserInterface extends JFrame {
 	private Utente u;
@@ -44,6 +46,5 @@ public class UserInterface extends JFrame {
 		}
 		
 	}
-	
 
 }
