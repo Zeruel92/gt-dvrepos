@@ -51,5 +51,3 @@ public class Login extends JFrame {
 	}
 }
 
-
-//TODO Implementare i controlli dei listener

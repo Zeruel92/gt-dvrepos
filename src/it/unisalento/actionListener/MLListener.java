@@ -14,11 +14,7 @@ public class MLListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		if (e.getActionCommand().equals("Ok"))
-			modifica.modifica(l);
-		
+		//if (e.getActionCommand().equals("Ok"))
+		//	modifica.modifica(l);	ho commentato le righe per togliere l'errore e provare a compilare
 	}
-	
-	
-
 }

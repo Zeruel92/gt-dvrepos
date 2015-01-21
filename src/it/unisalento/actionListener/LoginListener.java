@@ -2,9 +2,12 @@ package it.unisalento.actionListener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.MessageDigest;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
+import it.unisalento.businesslogic.Digest;
 import it.unisalento.businesslogic.LoginManager;
 import it.unisalento.view.Login;
 import it.unisalento.view.Registrazione;
@@ -24,12 +27,15 @@ public class LoginListener implements ActionListener {
 		if(actionCommand.equals(ACTION_LOGIN)){
 			String username= f.getUsername();
 			String pass=new String(f.getPassword());
-			LoginManager lm=new LoginManager(username,pass);
+			Digest d=new Digest(pass);
+			pass=""; 
+			String hashpass=d.getResult();
+			LoginManager lm=new LoginManager(username,hashpass);
 			if(lm.getStatus()){
 				System.out.println("login completato");
 			}
 			else{
-				System.out.println("Login errato");
+				JOptionPane.showMessageDialog(null,"I dati inseriti non sono validi, riprovare o registrarsi per accedere!");
 			}
 		}
 		else{
