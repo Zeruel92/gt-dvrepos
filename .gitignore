@@ -1,0 +1,12 @@
+/bin/
+<<<<<<< HEAD
+.classpath
+.project
+.DS_Store
+/.settings/
+=======
+.project
+/.settings/
+.classpath
+.DS_Store
+>>>>>>> refs/remotes/origin/daniele
