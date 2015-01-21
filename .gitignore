@@ -1,4 +1,5 @@
 /bin/
-/.project
+.project
 /.settings/
-/.classpath
+.classpath
+.DS_Store
