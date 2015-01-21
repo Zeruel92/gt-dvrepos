@@ -1,0 +1,1 @@
+INSERT INTO `Libreria`.`Utente` (`idUtente`, `nome`, `cognome`, `codfisc`, `email`, `password`, `tipo`, `citta`, `provincia`, `telefono`, `indirizzo`) VALUES (NULL, 'Utente', 'DiProva', 'UTENTEDIPROVA222', 'prova@provamitutto.it', '189bbbb00c5f1fb7fba9ad9285f193d1', '1', 'Test', 'TE', '0123456789', 'Via dei Test, 666');

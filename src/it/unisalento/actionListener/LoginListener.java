@@ -11,6 +11,7 @@ import it.unisalento.businesslogic.Digest;
 import it.unisalento.businesslogic.LoginManager;
 import it.unisalento.view.Login;
 import it.unisalento.view.Registrazione;
+import it.unisalento.view.UserInterface;
 
 public class LoginListener implements ActionListener {
 	public static final String ACTION_LOGIN="login";
@@ -33,6 +34,9 @@ public class LoginListener implements ActionListener {
 			LoginManager lm=new LoginManager(username,hashpass);
 			if(lm.getStatus()){
 				System.out.println("login completato");
+				UserInterface ui=new UserInterface(lm.getUser());
+				ui.setVisible(true);
+				f.setVisible(false);
 			}
 			else{
 				JOptionPane.showMessageDialog(null,"I dati inseriti non sono validi, riprovare o registrarsi per accedere!");

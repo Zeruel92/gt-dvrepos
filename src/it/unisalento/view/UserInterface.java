@@ -16,6 +16,7 @@ public class UserInterface extends JFrame {
 	
 	
 	public UserInterface(Utente u){
+		super("Benvenuto: "+u.getNome()+" "+u.getCognome());
 		this.u=u;
 		schede= new JTabbedPane();
 		catalogo= new Catalogo();
@@ -44,6 +45,9 @@ public class UserInterface extends JFrame {
 			schede.addTab("Registro Vendite", registrovendite);
 			schede.addTab("Gestione Addetti", gestioneaddetti);
 		}
+		
+		setSize(400,400);
+		setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 		
 	}
 

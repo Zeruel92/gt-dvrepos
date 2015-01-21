@@ -23,7 +23,8 @@ public class DBManager {
 		return istance;
 	}
 	public DBManager(){	
-		password="passwordlibreria";
+		server="localhost";
+		password="libreria";
 		username="libreria";
 		database="Libreria";
 		try{
