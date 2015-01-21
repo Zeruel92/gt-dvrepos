@@ -5,19 +5,23 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 import it.unisalento.model.Libro;
+import it.unisalento.view.ModificaLibro;
 
 public class Libreria {
 	ArrayList<Libro> libreria= new ArrayList<Libro>();
-	public void AggiungiLibro(Libro l)
+	ModificaLibro modifica;
+	
+	
+	public void aggiungiLibro(Libro l)
 	{
 		libreria.add(libreria.indexOf(libreria.lastIndexOf(libreria)), l);
 	}
-	public void RimuoviLibro(Libro l){
+	public void rimuoviLibro(Libro l){
 		libreria.remove(l);
 	}
-	public void ModificaLibro(Libro l)
+	public void modificaLibro(Libro l)
 	{
-		
+		modifica= new ModificaLibro(l);
 	}
 	
 	
