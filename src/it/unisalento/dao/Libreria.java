@@ -29,6 +29,14 @@ import it.unisalento.view.ModificaLibro;
 	public Libro getLibro(int index){
 		return libreria.elementAt(index);
 	}
+	public Libro getLibroID(int id){
+		Libro l=new Libro();
+		for (int i=0;i<libreria.size();i++){
+			if(libreria.elementAt(i).getIdlibro()==id)
+				l=libreria.elementAt(i);
+		}
+		return l;
+	}
 	public int getDim(){
 		return libreria.size();
 	}

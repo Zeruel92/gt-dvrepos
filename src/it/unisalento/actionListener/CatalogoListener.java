@@ -1,5 +1,6 @@
 package it.unisalento.actionListener;
 
+import it.unisalento.businesslogic.CarrelloManager;
 import it.unisalento.view.Catalogo;
 
 import java.awt.event.ActionEvent;
@@ -17,7 +18,8 @@ public class CatalogoListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		if(arg0.getActionCommand().equals(ACTION_ADD)){
-			c.getSelezionati();
+			CarrelloManager m=new CarrelloManager(c.getSelezionati());
+			
 		}
 	}
 
