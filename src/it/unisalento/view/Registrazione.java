@@ -9,6 +9,8 @@ public class Registrazione extends JFrame
 	public Registrazione()
 	{
 		super("Registrazione");
+		setVisible(true);
+		
 		
 	}
 }
