@@ -23,27 +23,32 @@ public class UserInterface extends JFrame {
 		add(schede);
 		if(u.getTipo()==0)
 		{
+			//Cliente
 			schede.addTab("Catalogo", catalogo);
 			schede.addTab("Carrello", carrello);
 		}
 		else if(u.getTipo()==1)
 		{
+			//Addetto Libreria
 			schede.addTab("Catalogo", catalogo);
 			schede.addTab("Carrello", carrello);
 			schede.addTab("Gestione Libreria", gestionelibreria);
 		}
 		else if(u.getTipo()==2)
 			{
+			//Addetto Vendite
 			schede.addTab("Catalogo", catalogo);
 			schede.addTab("Carrello", carrello);
 			schede.addTab("Registro Vendite", registrovendite);
 			}
 		else if(u.getTipo()==3)
 		{
+			//Amministratore
 			schede.addTab("Catalogo", catalogo);
 			schede.addTab("Carrello", carrello);
 			schede.addTab("Registro Vendite", registrovendite);
 			schede.addTab("Gestione Addetti", gestioneaddetti);
+			schede.addTab("Gestione Libreria", gestionelibreria);
 		}
 		
 		setSize(400,400);

@@ -17,8 +17,9 @@ public class ModificaLibro extends JFrame
 	String temp;
 	int temp1;
 	float temp2;
+	Libro l;
 	
-	private void modifica(Libro l)
+	public void modifica()
 	{
 		temp=t1.getText();
 		temp1=Integer.parseInt(temp);
