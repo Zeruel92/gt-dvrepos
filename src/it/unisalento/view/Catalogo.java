@@ -2,6 +2,7 @@ package it.unisalento.view;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -9,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 
+import it.unisalento.actionListener.CatalogoListener;
 import it.unisalento.dao.*;
 import it.unisalento.model.Libro;
 
@@ -18,6 +20,7 @@ public class Catalogo extends JPanel {
 	private JButton addchart;
 	private JButton search;
 	private Libreria lib;
+	private Vector<JCheckBox> selection;
 	public Catalogo(){
 		this.setLayout(new BorderLayout());
 		center=new JPanel();
@@ -25,10 +28,14 @@ public class Catalogo extends JPanel {
 		south=new JPanel();
 		this.add(south, BorderLayout.SOUTH);
 		addchart=new JButton("Aggiungi al Carrello");
+		addchart.addActionListener(new CatalogoListener(this));
+		addchart.setActionCommand(CatalogoListener.ACTION_ADD);
 		search=new JButton("Cerca");
+		search.addActionListener(new CatalogoListener(this));
+		search.setActionCommand(CatalogoListener.ACTION_SEARCH);
 		south.add(addchart);
 		south.add(search);
-		lib=new Libreria();
+		lib=Libreria.getIstance();
 		center.setLayout(new GridLayout(0,7));
 		System.out.println(lib.getDim());
 		center.add(new JLabel(" "));
@@ -38,9 +45,12 @@ public class Catalogo extends JPanel {
 		center.add(new JLabel("Genere"));
 		center.add(new JLabel("Prezzo"));
 		center.add(new JLabel("Giacenza"));
+		selection=new Vector<JCheckBox>();
+		
 		for (int i=0;i<lib.getDim();i++){
 			Libro l= lib.getLibro(i);
-			JCheckBox c=new JCheckBox();
+			JCheckBox c=new JCheckBox(Integer.toString(l.getIdlibro()));
+			selection.add(c);
 			JLabel titolo,autore,casaed,genere,prezzo,giac;
 			titolo=new JLabel(l.getTitolo());
 			autore=new JLabel(l.getAutore());
@@ -57,5 +67,13 @@ public class Catalogo extends JPanel {
 			center.add(giac);
 		}
 	}
-
+	public Vector<JCheckBox> getSelezionati(){
+		Vector<JCheckBox> selezionati=new Vector<JCheckBox>();
+		for (int i=0;i< selection.size();i++){
+			if(selection.elementAt(i).isSelected()){
+				selezionati.addElement(selection.elementAt(i));
+			}
+		}
+		return selezionati;
+	}
 }

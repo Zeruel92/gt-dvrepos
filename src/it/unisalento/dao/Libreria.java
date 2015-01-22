@@ -11,10 +11,16 @@ import it.unisalento.model.Libro;
 import it.unisalento.view.ModificaLibro;
 
 	public class Libreria {
-		private	Vector<Libro> libreria= new Vector<Libro>();
+		private	static Vector<Libro> libreria= new Vector<Libro>();
 		private	ModificaLibro modifica;
 		private DBManager db;
-	
+		private static Libreria istance;
+		public static Libreria getIstance(){
+			if(istance==null){
+				istance=new Libreria();
+			}
+			return istance;
+		}
 	public void modificaLibro(Libro l)
 	{
 		modifica= new ModificaLibro(l);
