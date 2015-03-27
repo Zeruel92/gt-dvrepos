@@ -16,6 +16,7 @@ import it.unisalento.view.UserInterface;
 public class LoginListener implements ActionListener {
 	public static final String ACTION_LOGIN="login";
 	public static final String ACTION_REGISTER="registra";
+	public static final String ACTION_ABOUT="aboutus";
 	private Login f;
 	
 	public LoginListener(Login f){
@@ -41,6 +42,11 @@ public class LoginListener implements ActionListener {
 			else{
 				JOptionPane.showMessageDialog(null,"I dati inseriti non sono validi, riprovare o registrarsi per accedere!");
 			}
+		}
+		else if(actionCommand.equals(ACTION_ABOUT)){
+			String abouts="Libreria\n Realizzata da Gabriele Tramonte e Daniele Viscuso\nProgetto per il corso di \"Principi di Progettazione del Software\"\n"
+					+ "Anno Accademico 2014/2015 ";
+			JOptionPane.showMessageDialog(null,abouts);
 		}
 		else{
 			Registrazione r=new Registrazione();

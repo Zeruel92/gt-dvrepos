@@ -6,6 +6,7 @@ import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JMenu;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
@@ -21,6 +22,7 @@ public class Catalogo extends JPanel {
 	private JButton search;
 	private Libreria lib;
 	private Vector<JCheckBox> selection;
+	
 	public Catalogo(){
 		this.setLayout(new BorderLayout());
 		center=new JPanel();
@@ -65,6 +67,7 @@ public class Catalogo extends JPanel {
 			center.add(genere);
 			center.add(prezzo);
 			center.add(giac);
+			this.setPreferredSize(null);
 		}
 	}
 	public Vector<JCheckBox> getSelezionati(){

@@ -16,6 +16,8 @@ public class Login extends JFrame {
 	private JButton login;
 	private JButton register;
 	private LoginListener loginListener;
+	private JMenuBar bar;
+	
 	public Login(){
 		super("Libreria: Effettua Login");
 		p=new JPanel();
@@ -38,10 +40,22 @@ public class Login extends JFrame {
 		this.register.addActionListener(loginListener);
 		this.login.setActionCommand(loginListener.ACTION_LOGIN);
 		this.register.setActionCommand(loginListener.ACTION_REGISTER);
+		this.bar=new JMenuBar();
+		JMenu help=new JMenu("Help");
+		bar.add(help);
+		this.setJMenuBar(bar);
+		JMenuItem item=new JMenuItem("About Us");
+		help.add(item);
+		item.setActionCommand(loginListener.ACTION_ABOUT);
+		item.addActionListener(loginListener);
 		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.setResizable(false);
 		this.pack();
+		
+		//DEBUG SETTINGS
+		this.uname.setText("prova@provamitutto.it");
+		this.pass.setText("prova");
 	}
 	public String getUsername(){
 		return this.uname.getText();
