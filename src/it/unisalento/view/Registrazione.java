@@ -6,9 +6,10 @@ import javax.swing.*;
 public class Registrazione extends JFrame 
 {
 	
-	public JPanel p;
-	public JLabel email,pass,pass2, nome, cognome, codfiscale, citta, provincia, tel, indirizzo;
-	public JTextField temail,tpass,tpass2, tnome, tcognome, tcod, tcitta, tprovincia, ttel, tindirizzo;
+	private JPanel p;
+	private JLabel email,pass,pass2, nome, cognome, codfiscale, citta, provincia, tel, indirizzo;
+	private JTextField temail, tnome, tcognome, tcod, tcitta, tprovincia, ttel, tindirizzo;
+	private JPasswordField tpass,tpass2;
 	private JButton ok, canc;
 	
 	public Registrazione()
@@ -37,12 +38,12 @@ public class Registrazione extends JFrame
 		temail.setHorizontalAlignment(JTextField.RIGHT);
 		pass=new JLabel("Password: ");
 		p.add(pass);
-		tpass=new JTextField(20);
+		tpass=new JPasswordField(20);
 		tpass.setHorizontalAlignment(JTextField.RIGHT);
 		p.add(tpass);
 		pass2=new JLabel("Reinserire la password: ");
 		p.add(pass2);
-		tpass2=new JTextField(20);
+		tpass2=new JPasswordField(20);
 		tpass2.setHorizontalAlignment(JTextField.RIGHT);
 		p.add(tpass2);
 		nome=new JLabel("Nome: ");
@@ -92,8 +93,7 @@ public class Registrazione extends JFrame
 		k.add(p, BorderLayout.CENTER);
 		k.add(b, BorderLayout.SOUTH);
 		
-		this.pack();
 		this.setResizable(false); 
-		
+		this.pack();
 	}
 }

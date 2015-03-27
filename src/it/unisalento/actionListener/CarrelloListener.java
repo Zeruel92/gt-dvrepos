@@ -6,6 +6,8 @@ import it.unisalento.view.Carrello;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 public class CarrelloListener implements ActionListener {
 	
 	private Carrello c;
@@ -29,6 +31,9 @@ public class CarrelloListener implements ActionListener {
 			cc.rimuoviLibro(i);
 			c.aggiorna();
 		}
+		}
+		if(a.equals(ACTION_SHIP)){
+			JOptionPane.showMessageDialog(null,"Acquista");
 		}
 	}
 
