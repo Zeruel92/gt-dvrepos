@@ -20,6 +20,7 @@ public class UserInterface extends JFrame {
 		this.u=u;
 		schede= new JTabbedPane();
 		catalogo= new Catalogo();
+		carrello=new Carrello();
 		add(schede);
 		if(u.getTipo()==0)
 		{

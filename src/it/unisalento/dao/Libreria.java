@@ -11,10 +11,16 @@ import it.unisalento.model.Libro;
 import it.unisalento.view.ModificaLibro;
 
 	public class Libreria {
-		private	Vector<Libro> libreria= new Vector<Libro>();
+		private	static Vector<Libro> libreria= new Vector<Libro>();
 		private	ModificaLibro modifica;
 		private DBManager db;
-	
+		private static Libreria istance;
+		public static Libreria getIstance(){
+			if(istance==null){
+				istance=new Libreria();
+			}
+			return istance;
+		}
 	public void modificaLibro(Libro l)
 	{
 		modifica= new ModificaLibro(l);
@@ -22,6 +28,14 @@ import it.unisalento.view.ModificaLibro;
 	
 	public Libro getLibro(int index){
 		return libreria.elementAt(index);
+	}
+	public Libro getLibroID(int id){
+		Libro l=new Libro();
+		for (int i=0;i<libreria.size();i++){
+			if(libreria.elementAt(i).getIdlibro()==id)
+				l=libreria.elementAt(i);
+		}
+		return l;
 	}
 	public int getDim(){
 		return libreria.size();

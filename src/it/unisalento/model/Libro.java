@@ -62,4 +62,7 @@ public class Libro {
 		this.genere=genere;
 		
 	}
+	public Libro(){
+		
+	}
 }
