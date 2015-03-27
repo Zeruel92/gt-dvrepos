@@ -93,12 +93,7 @@ public class Registrazione extends JFrame
 		k.add(b, BorderLayout.SOUTH);
 		
 		this.pack();
-		//this.setResizable(false); Disabilitato per motivi ancora sconosciuti! appena risolvo lo riattivo
-		
-		
-		
-		
-		
+		this.setResizable(false); 
 		
 	}
 }
