@@ -67,7 +67,6 @@ public class Catalogo extends JPanel {
 			center.add(genere);
 			center.add(prezzo);
 			center.add(giac);
-			this.setPreferredSize(null);
 		}
 	}
 	public Vector<JCheckBox> getSelezionati(){
