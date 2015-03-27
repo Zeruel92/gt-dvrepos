@@ -60,7 +60,7 @@ public class Registrazione extends JFrame
 		tcod=new JTextField(20);
 		tcod.setHorizontalAlignment(JTextField.RIGHT);
 		p.add(tcod);
-		citta=new JLabel("Cittˆ di residenza: ");
+		citta=new JLabel("Citta\' di residenza: ");
 		p.add(citta);
 		tcitta=new JTextField(20);
 		tcitta.setHorizontalAlignment(JTextField.RIGHT);
@@ -93,7 +93,7 @@ public class Registrazione extends JFrame
 		k.add(b, BorderLayout.SOUTH);
 		
 		this.pack();
-		this.setResizable(false);
+		//this.setResizable(false); Disabilitato per motivi ancora sconosciuti! appena risolvo lo riattivo
 		
 		
 		

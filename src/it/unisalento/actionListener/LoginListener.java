@@ -44,6 +44,7 @@ public class LoginListener implements ActionListener {
 		}
 		else{
 			Registrazione r=new Registrazione();
+			f.setVisible(false);
 		}
 	}
 
