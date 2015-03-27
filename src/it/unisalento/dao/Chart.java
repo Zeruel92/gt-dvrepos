@@ -27,4 +27,13 @@ public class Chart {
 	public int getDim(){
 		return carrello.size();
 	}
+	public void rimuoviLibro(int i){
+		carrello.removeElementAt(i);
+	}
+	public float getTotale(){
+		float tot=0;
+		for (int i=0;i<carrello.size();i++)
+			tot+=carrello.elementAt(i).getCosto();
+		return tot;
+	}
 }
