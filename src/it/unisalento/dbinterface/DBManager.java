@@ -34,6 +34,7 @@ public class DBManager {
 			System.out.println("Connessione al DB aperta");
 		}catch(Exception e){
 			JOptionPane.showMessageDialog(null,"Server MYSQL non disponibile riprovare piu tardi");
+			istance.closeConnection();
 			e.printStackTrace();
 		}
 		

@@ -56,7 +56,7 @@ public class Carrello extends JPanel implements Runnable{
 			autore=new JLabel(chart.getItem(i).getAutore());
 			casaed=new JLabel(chart.getItem(i).getCasaedi());
 			genere=new JLabel(chart.getItem(i).getGenere());
-			prezzo=new JLabel(Float.toString(chart.getItem(i).getCosto())+"â‚¬");
+			prezzo=new JLabel(Float.toString(chart.getItem(i).getCosto())+"€");
 			rimuovi=new JButton("Rimuovi");
 			String command=carrList.ACTION_DELETE+Integer.toString(i);
 			System.out.println("Actioncommand "+command);
