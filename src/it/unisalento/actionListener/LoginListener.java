@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import it.unisalento.businesslogic.Digest;
 import it.unisalento.businesslogic.LoginManager;
+import it.unisalento.view.AboutUs;
 import it.unisalento.view.Login;
 import it.unisalento.view.Registrazione;
 import it.unisalento.view.UserInterface;
@@ -44,9 +45,8 @@ public class LoginListener implements ActionListener {
 			}
 		}
 		else if(actionCommand.equals(ACTION_ABOUT)){
-			String abouts="Libreria\n Realizzata da Gabriele Tramonte e Daniele Viscuso\nProgetto per il corso di \"Principi di Progettazione del Software\"\n"
-					+ "Anno Accademico 2014/2015 ";
-			JOptionPane.showMessageDialog(null,abouts);
+			AboutUs a=new AboutUs();
+			a.setVisible(true);
 		}
 		else{
 			Registrazione r=new Registrazione();
