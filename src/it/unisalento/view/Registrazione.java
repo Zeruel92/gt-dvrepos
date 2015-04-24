@@ -1,5 +1,9 @@
 package it.unisalento.view;
+import it.unisalento.actionListener.RegListener;
+import it.unisalento.businesslogic.Digest;
+
 import java.awt.*;
+
 import javax.swing.*;
 
 
@@ -84,7 +88,11 @@ public class Registrazione extends JFrame
 		
 		//Creo bottoni
 		ok=new JButton("Conferma");
+		ok.setActionCommand("Ok");
+		ok.addActionListener(new RegListener(this));
 		canc=new JButton("Cancella");
+		canc.setActionCommand("Canc");
+		canc.addActionListener(new RegListener(this));
 		b.add(ok);
 		b.add(canc);
 		
@@ -95,5 +103,39 @@ public class Registrazione extends JFrame
 		
 		this.setResizable(false); 
 		this.pack();
+	}
+	public String getNome(){
+		return tnome.getText();
+	}
+	public String getCognome(){
+		return tcognome.getText();
+	}
+	public String getPassword1(){
+		String password= new String (tpass.getPassword());
+		Digest d= new Digest(password);
+		return d.getResult();
+	}
+	public String getPassword2(){
+		String password= new String (tpass2.getPassword());
+		Digest d= new Digest(password);
+		return d.getResult();
+	}
+	public String getEmail(){
+		return temail.getText();
+	}
+	public String getCod(){
+		return tcod.getText();
+	}
+	public String getCitta(){
+		return tcitta.getText();
+	}
+	public String getProvincia(){
+		return tprovincia.getText();
+	}
+	public String getTel(){
+		return ttel.getText();
+	}
+	public String getIndirizzo(){
+		return tindirizzo.getText();
 	}
 }
