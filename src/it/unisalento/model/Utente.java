@@ -1,17 +1,27 @@
 package it.unisalento.model;
 
+import it.unisalento.dao.Chart;
+
 public class Utente{
-	private int idutente;
-	private String nome;
-	private String cognome;
-	private String codfiscale;
-	private String email;
-	private String password;
-	private int tipo;
-	private String citta;
-	private String provincia;
-	private int telefono;
-	private String indirizzo;
+	private static int idutente;
+	private static String nome;
+	private static String cognome;
+	private static String codfiscale;
+	private static String email;
+	private static String password;
+	private static int tipo;
+	private static String citta;
+	private static String provincia;
+	private static int telefono;
+	private static String indirizzo;
+	private static Utente user;
+	public static Utente getUser(){
+		if(user==null){
+			user=new Utente(idutente, nome, cognome, codfiscale, email, password, tipo, citta, provincia, telefono, indirizzo);
+		}
+		return user;
+	}
+	
 	public int getIdutente() {
 		return idutente;
 	}

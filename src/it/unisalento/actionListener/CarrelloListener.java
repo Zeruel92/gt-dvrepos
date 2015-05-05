@@ -1,6 +1,7 @@
 package it.unisalento.actionListener;
 
 import it.unisalento.dao.Chart;
+import it.unisalento.view.RegistroVendite;
 import it.unisalento.view.Carrello;
 
 import java.awt.event.ActionEvent;
@@ -10,6 +11,7 @@ import javax.swing.JOptionPane;
 
 public class CarrelloListener implements ActionListener {
 	
+	private RegistroVendite r;
 	private Carrello c;
 	public static final String ACTION_DELETE="delete";
 	public static final String ACTION_SHIP="goshipping";
@@ -34,6 +36,7 @@ public class CarrelloListener implements ActionListener {
 		}
 		if(a.equals(ACTION_SHIP)){
 			JOptionPane.showMessageDialog(null,"Acquista");
+			r.Aggiorna(c);
 		}
 	}
 
