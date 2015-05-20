@@ -36,7 +36,13 @@ public class CarrelloListener implements ActionListener {
 		}
 		if(a.equals(ACTION_SHIP)){
 			JOptionPane.showMessageDialog(null,"Acquista");
-			r.Aggiorna(c);
+			r.Aggiorna();
+			int i;
+			for (i=cc.getDim(); i>=0; i--)
+			{
+				cc.rimuoviLibro(i);
+			}
+			c.aggiorna();
 		}
 	}
 

@@ -27,8 +27,6 @@ public class Carrello extends JPanel implements Runnable{
 	private CarrelloListener carrList;
 	private JButton compra;
 	private JLabel riepilogo;
-	java.util.TimeZone time=java.util.TimeZone.getTimeZone("ECT");
-	java.util.Calendar oggi = java.util.Calendar.getInstance(time);
 	
 	public Carrello(){
 		u=Utente.getUser();
@@ -68,25 +66,6 @@ public class Carrello extends JPanel implements Runnable{
 			genere=new JLabel(chart.getItem(i).getGenere());
 			prezzo=new JLabel(Float.toString(chart.getItem(i).getCosto())+"Û");
 			rimuovi=new JButton("Rimuovi");
-			
-			JTextArea ctitolo, cprezzo;
-			JTextArea date= new JTextArea();
-			
-			ctitolo=new JTextArea(chart.getItem(i).getTitolo());
-			cprezzo=new JTextArea(Float.toString(chart.getItem(i).getCosto())+"Û");
-			int giorno = oggi.get(oggi.DAY_OF_MONTH);
-			int mese = oggi.get(oggi.MONTH)+1;
-			int anno = oggi.get(oggi.YEAR);
-			String aname=u.getNome();
-			String acognome=u.getCognome();
-			String acod=u.getCodfiscale();
-			JTextArea info=new JTextArea(aname+" "+acognome+""+acod);
-			
-			date.setText(giorno+"/"+mese+"/"+anno);
-			registro.add(ctitolo);
-			registro.add(date);
-			registro.add(cprezzo);
-			registro.add(info);
 			
 			String command=carrList.ACTION_DELETE+Integer.toString(i);
 			System.out.println("Actioncommand "+command);

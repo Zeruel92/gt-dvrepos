@@ -21,6 +21,7 @@ public class UserInterface extends JFrame {
 		schede= new JTabbedPane();
 		catalogo= new Catalogo();
 		carrello=new Carrello();
+		registrovendite= new RegistroVendite();
 		add(schede);
 		if(u.getTipo()==0)
 		{
@@ -34,6 +35,7 @@ public class UserInterface extends JFrame {
 			schede.addTab("Catalogo", catalogo);
 			schede.addTab("Carrello", carrello);
 			schede.addTab("Gestione Libreria", gestionelibreria);
+			schede.addTab("Registro Vendite", registrovendite);
 		}
 		else if(u.getTipo()==2)
 			{
