@@ -90,6 +90,9 @@ public class Carrello extends JPanel implements Runnable{
 			if(!this.isShowing()){
 			aggiorna();
 			}
+			if(chart.isEmpty()){
+				aggiorna();
+			}
 		}
 	}catch(Exception e){
 		e.printStackTrace();

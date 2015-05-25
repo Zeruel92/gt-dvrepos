@@ -15,6 +15,7 @@ public class Utente{
 	private static int telefono;
 	private static String indirizzo;
 	private static Utente user;
+	
 	public static Utente getUser(){
 		if(user==null){
 			user=new Utente(idutente, nome, cognome, codfiscale, email, password, tipo, citta, provincia, telefono, indirizzo);

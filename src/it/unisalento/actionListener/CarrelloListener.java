@@ -3,10 +3,12 @@ package it.unisalento.actionListener;
 import it.unisalento.dao.Chart;
 import it.unisalento.view.RegistroVendite;
 import it.unisalento.view.Carrello;
+import it.unisalento.view.Riepilogo;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class CarrelloListener implements ActionListener {
@@ -36,13 +38,8 @@ public class CarrelloListener implements ActionListener {
 		}
 		if(a.equals(ACTION_SHIP)){
 			JOptionPane.showMessageDialog(null,"Acquista");
-			r.Aggiorna();
-			int i;
-			for (i=cc.getDim(); i>=0; i--)
-			{
-				cc.rimuoviLibro(i);
-			}
-			c.aggiorna();
+			c.setVisible(false);
+			Riepilogo riep=new Riepilogo();
 		}
 	}
 
