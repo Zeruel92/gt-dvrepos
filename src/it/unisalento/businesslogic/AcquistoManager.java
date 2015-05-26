@@ -14,7 +14,7 @@ public class AcquistoManager {
 		java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String currentTime = sdf.format(dt);
 		for (int i=0;i<c.getDim();i++){
-		String query="Insert into vendite values (null,"+c.getItem(i).getIdlibro()+","+u.getIdutente()+",\""+currentTime+"\");";
+		String query="Insert into Vendite values (null,"+c.getItem(i).getIdlibro()+","+u.getIdutente()+",\""+currentTime+"\");";
 		d.inserisciNuovo(query);
 		}
 		c.svuotaCarrello();

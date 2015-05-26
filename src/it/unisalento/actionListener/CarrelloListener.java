@@ -37,8 +37,6 @@ public class CarrelloListener implements ActionListener {
 		}
 		}
 		if(a.equals(ACTION_SHIP)){
-			JOptionPane.showMessageDialog(null,"Acquista");
-			c.setVisible(false);
 			Riepilogo riep=new Riepilogo();
 		}
 	}
