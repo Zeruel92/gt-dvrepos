@@ -44,11 +44,21 @@ public class Riepilogo extends JFrame {
 						
 		utente.setText(sutente);
 		p.add(utente);
+		JLabel datiLibri=new JLabel();
+		String sdatiLibri="<html>Riepilogo dai acquisto:<br>"
+				+"Numero libri acquistati: "+chart.getDim()
+				+"<br>Totale Costo: "+chart.getTotale()
+				+"</htm>";
+		datiLibri.setText(sdatiLibri);
+		p.add(datiLibri);
 		p2=new JPanel();
 		p2.setLayout(new BorderLayout());
 		this.getContentPane().add(p2,BorderLayout.SOUTH);
-		p2.add(b2,BorderLayout.EAST);
-		p2.add(b1,BorderLayout.WEST);
+		JPanel p3=new JPanel();
+		p3.setLayout(new FlowLayout());
+		p2.add(p3, BorderLayout.SOUTH);
+		p3.add(b1);
+		p3.add(b2);
 		pack();
 		setVisible(true);
 	}

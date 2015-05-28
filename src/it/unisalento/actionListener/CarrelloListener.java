@@ -28,7 +28,6 @@ public class CarrelloListener implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		String a=arg0.getActionCommand();
 		String command="";
-		System.out.println(a);
 		for(int i=0;i<cc.getDim();i++){
 			command=ACTION_DELETE+Integer.toString(i);
 		if(a.equals(command)){
