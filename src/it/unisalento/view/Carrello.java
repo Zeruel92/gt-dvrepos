@@ -64,11 +64,10 @@ public class Carrello extends JPanel implements Runnable{
 			autore=new JLabel(chart.getItem(i).getAutore());
 			casaed=new JLabel(chart.getItem(i).getCasaedi());
 			genere=new JLabel(chart.getItem(i).getGenere());
-			prezzo=new JLabel(Float.toString(chart.getItem(i).getCosto())+"Û");
+			prezzo=new JLabel(Float.toString(chart.getItem(i).getCosto())+"ï¿½");
 			rimuovi=new JButton("Rimuovi");
 			
 			String command=carrList.ACTION_DELETE+Integer.toString(i);
-			System.out.println("Actioncommand "+command);
 			rimuovi.setActionCommand(command);
 			rimuovi.addActionListener(carrList);
 			north.add(rimuovi);
@@ -80,7 +79,7 @@ public class Carrello extends JPanel implements Runnable{
 			
 		}
 		String totale=Float.toString(chart.getTotale());
-		riepilogo.setText("Il totale e' di "+totale+"Û");
+		riepilogo.setText("Il totale e' di "+totale+"ï¿½");
 	}
 	
 	public void run(){

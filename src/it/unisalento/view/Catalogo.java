@@ -58,7 +58,7 @@ public class Catalogo extends JPanel {
 			autore=new JLabel(l.getAutore());
 			casaed=new JLabel(l.getCasaedi());
 			genere=new JLabel(l.getGenere());
-			prezzo=new JLabel(Float.toString(l.getCosto())+"Û");
+			prezzo=new JLabel(Float.toString(l.getCosto())+"ï¿½");
 			giac=new JLabel(Integer.toString(l.getGiacenza()));
 			center.add(c);
 			center.add(titolo);
