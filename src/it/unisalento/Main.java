@@ -10,13 +10,13 @@ public class Main {
 		String os=System.getProperty("os.name");
 		os=os.toLowerCase();
 		if(os.contains("windows")){
-			EURO="€";
+			EURO="ï¿½";
 		}
 		else if (os.contains("osx")){
 			
 		}
 		else{
-			
+			EURO="â‚¬";
 		}
 		Login l=new Login();
 
