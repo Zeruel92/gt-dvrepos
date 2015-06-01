@@ -31,7 +31,7 @@ public class AcquistoManager {
                    }
          
                    else {
-                       JOptionPane.showMessageDialog(null,"Libro: "+c.getItem(i).getTitolo()+"non disponibile");
+                       JOptionPane.showMessageDialog(null,"Libro: "+c.getItem(i).getTitolo()+" non disponibile");
                    }
 		}
 		c.svuotaCarrello();
