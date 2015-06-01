@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 
+import it.unisalento.Main;
 import it.unisalento.actionListener.CatalogoListener;
 import it.unisalento.dao.*;
 import it.unisalento.model.Libro;
@@ -58,7 +59,7 @@ public class Catalogo extends JPanel {
 			autore=new JLabel(l.getAutore());
 			casaed=new JLabel(l.getCasaedi());
 			genere=new JLabel(l.getGenere());
-			prezzo=new JLabel(Float.toString(l.getCosto())+"�");
+			prezzo=new JLabel(Float.toString(l.getCosto())+Main.EURO);
 			giac=new JLabel(Integer.toString(l.getGiacenza()));
 			center.add(c);
 			center.add(titolo);

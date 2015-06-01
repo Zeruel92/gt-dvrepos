@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.awt.GridLayout;
 import java.util.Vector;
 
+import it.unisalento.Main;
 import it.unisalento.actionListener.CarrelloListener;
 import it.unisalento.actionListener.CatalogoListener;
 import it.unisalento.dao.Chart;
@@ -64,7 +65,7 @@ public class Carrello extends JPanel implements Runnable{
 			autore=new JLabel(chart.getItem(i).getAutore());
 			casaed=new JLabel(chart.getItem(i).getCasaedi());
 			genere=new JLabel(chart.getItem(i).getGenere());
-			prezzo=new JLabel(Float.toString(chart.getItem(i).getCosto())+"�");
+			prezzo=new JLabel(Float.toString(chart.getItem(i).getCosto())+Main.EURO);
 			rimuovi=new JButton("Rimuovi");
 			
 			String command=carrList.ACTION_DELETE+Integer.toString(i);
@@ -79,7 +80,7 @@ public class Carrello extends JPanel implements Runnable{
 			
 		}
 		String totale=Float.toString(chart.getTotale());
-		riepilogo.setText("Il totale e' di "+totale+"�");
+		riepilogo.setText("Il totale e' di "+totale+Main.EURO);
 	}
 	
 	public void run(){
