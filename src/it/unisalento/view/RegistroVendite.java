@@ -1,27 +1,26 @@
 package it.unisalento.view;
 
+
 import it.unisalento.dao.Chart;
+import it.unisalento.dbinterface.DBManager;
 import it.unisalento.model.Utente;
 
 import javax.swing.*;
 
 import java.awt.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Vector;
 
 public class RegistroVendite extends JPanel {
 	public JLabel uno,due,tre,quattro;
 	public JPanel nord, centro;
 	public JTextArea nomelibro, date, infocliente, prezzo;
-	private Chart cc;
-	private Utente u;
-	java.util.TimeZone time=java.util.TimeZone.getTimeZone("ECT");
-	java.util.Calendar oggi = java.util.Calendar.getInstance(time);
+	private static RegistroVendite istance;
 	public RegistroVendite()
 	{
 		//Imposto Layout pannello generale
 		this.setLayout(new BorderLayout());
-		
-		cc=Chart.getIstance();
 		
 		//creo pannelli superiori
 		JPanel nord= new JPanel();
@@ -44,36 +43,20 @@ public class RegistroVendite extends JPanel {
 		
 		this.add(centro, BorderLayout.CENTER);
 		
-		JTextArea date= new JTextArea();
-		
+		/*JTextArea date= new JTextArea();
 		JTextArea nomelibro= new JTextArea();
 		JTextArea infocliente=new JTextArea();
-		JTextArea prezzo= new JTextArea();
+		JTextArea prezzo= new JTextArea(); */
 		this.setVisible(true);
 		
 	}
-	public void Aggiorna()
-	{
-		int giorno = oggi.get(oggi.DAY_OF_MONTH);
-		int mese = oggi.get(oggi.MONTH)+1;
-		int anno = oggi.get(oggi.YEAR);
-		int i=0;
-		for (i=0; i<cc.getDim(); i++)
-		{
-			nomelibro.setText(cc.getItem(i).getTitolo());
-			centro.add(nomelibro);
-			System.out.println(nomelibro.getText());
-			
-			date.setText(giorno+"/"+mese+"/"+anno);
-			centro.add(date);
-			
-			infocliente.setText(u.getNome()+" "+u.getCognome()+" "+u.getTelefono());
-			centro.add(infocliente);
-			
-			prezzo.setText(Float.toString(cc.getItem(i).getCosto()));
-			centro.add(prezzo);
+	
+	public static RegistroVendite getIstance(){
+		if(istance==null){
+			istance=new RegistroVendite();
 		}
-			
+		return istance;
 	}
+	
 	
 }

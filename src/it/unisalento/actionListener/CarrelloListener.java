@@ -7,6 +7,7 @@ import it.unisalento.view.Riepilogo;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -18,6 +19,7 @@ public class CarrelloListener implements ActionListener {
 	public static final String ACTION_DELETE="delete";
 	public static final String ACTION_SHIP="goshipping";
 	private static Chart cc;
+	
 	
 	public CarrelloListener(Carrello c){
 		this.c=c;
