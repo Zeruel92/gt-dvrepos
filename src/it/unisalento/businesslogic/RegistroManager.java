@@ -3,53 +3,53 @@ import it.unisalento.view.RegistroVendite;
 import it.unisalento.dbinterface.*;
 
 import java.awt.GridLayout;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 public class RegistroManager {
-	JPanel centro;
+	JScrollPane centrosc;
 	public RegistroManager(){
 	String query="SELECT * from Vendite AS v JOIN Libro AS l JOIN Utente AS u WHERE v.idLibro = l.idLibro AND v.idUtente = u.idUtente ORDER BY idVendite;";
 	DBManager d=DBManager.getIstance();
 	ResultSet rs=d.eseguiQuery(query);
-	centro=new JPanel();
-	centro.setLayout(new GridLayout(0,5));
-	
+	JPanel centro=new JPanel();
+	centro.setLayout(new GridLayout(0,4));
+	centrosc=new JScrollPane(centro);
 	try {
 	while (rs.next())
 		{
-			JTextArea vuota=new JTextArea();
-			vuota.setText("");
-			centro.add(vuota);
 		
 			String nomel=rs.getString("titolo");
-			JTextArea nomelibro=new JTextArea();
+			JLabel nomelibro=new JLabel();
 			nomelibro.setText(nomel);
 			//r.setNomelibro(nomelibro);
 			//System.out.println(nomelibro.getText());
 			centro.add(nomelibro);
 			
+			Date data=rs.getDate("data_vendita");
+			JLabel date=new JLabel();
+			date.setText(data.toString());
+			//System.out.println(date.getText());
+			centro.add(date);
+			
 			String cliente=rs.getString("nome");
-			JTextArea infocliente=new JTextArea();
+			JLabel infocliente=new JLabel();
 			infocliente.setText(cliente);
 			//System.out.println(infocliente.getText());
 			centro.add(infocliente);
 			
 			
 			int price=rs.getInt("costo");
-			JTextArea prezzo=new JTextArea();
+			JLabel prezzo=new JLabel();
 			prezzo.setText(Integer.toString(price));
 			//System.out.println(prezzo.getText());
 			centro.add(prezzo);
-						
-			int data=rs.getInt("data_vendita");
-			JTextArea date=new JTextArea();
-			date.setText(Integer.toString(data));
-			//System.out.println(date.getText());
-			centro.add(date);
 			
 			if(rs.isLast())
 			{
@@ -62,8 +62,8 @@ public class RegistroManager {
 		e.printStackTrace();
 	}
 }
-public JPanel getCentro(){
-	return centro;
+public JScrollPane getCentro(){
+	return centrosc;
 	
 }
 }

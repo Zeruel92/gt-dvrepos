@@ -31,9 +31,9 @@ public class RegistroVendite extends JPanel {
 		JLabel due= new JLabel("Data di Vendita");
 		JLabel tre= new JLabel("Info Cliente");
 		JLabel quattro= new JLabel("Prezzo Libro");
-		JLabel vuota=new JLabel("");
+		//JLabel vuota=new JLabel("");
 	
-		nord.add(vuota);
+		//nord.add(vuota);
 		nord.add(uno);
 		nord.add(due);
 		nord.add(tre);
@@ -42,7 +42,7 @@ public class RegistroVendite extends JPanel {
 		
 		//creo pannelli al centro
 		
-		JPanel centro=new RegistroManager().getCentro();
+		JScrollPane centro=new RegistroManager().getCentro();
 		this.add(centro,BorderLayout.CENTER);
 		this.setVisible(true);
 		
