@@ -30,7 +30,6 @@ public class RiepilogoListener implements ActionListener {
 		String command=arg0.getActionCommand();
 		if(command.equals(ACTION_CONFIRM)){
 			AcquistoManager a=new AcquistoManager();
-			RegistroManager reg=new RegistroManager();
 			r.setVisible(false);
 			JOptionPane.showMessageDialog(null,"Acquisto Effettuato con successo!");
 			

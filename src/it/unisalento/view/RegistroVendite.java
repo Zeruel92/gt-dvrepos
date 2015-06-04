@@ -1,6 +1,7 @@
 package it.unisalento.view;
 
 
+import it.unisalento.businesslogic.RegistroManager;
 import it.unisalento.dao.Chart;
 import it.unisalento.dbinterface.DBManager;
 import it.unisalento.model.Utente;
@@ -15,8 +16,8 @@ import java.util.Vector;
 public class RegistroVendite extends JPanel {
 	public JLabel uno,due,tre,quattro;
 	public JPanel nord, centro;
-	public JTextArea nomelibro, date, infocliente, prezzo;
-	private static RegistroVendite istance;
+	public JTextArea nomelibro, date, infocliente, prezzo,l;
+	private RegistroVendite istance;
 	public RegistroVendite()
 	{
 		//Imposto Layout pannello generale
@@ -24,12 +25,15 @@ public class RegistroVendite extends JPanel {
 		
 		//creo pannelli superiori
 		JPanel nord= new JPanel();
+		nord.setLayout(new GridLayout(1,5));
 		this.add(nord, BorderLayout.NORTH);
 		JLabel uno=new JLabel("Nome Libro");
 		JLabel due= new JLabel("Data di Vendita");
 		JLabel tre= new JLabel("Info Cliente");
 		JLabel quattro= new JLabel("Prezzo Libro");
-		nord.add(new JLabel(""));
+		JLabel vuota=new JLabel("");
+	
+		nord.add(vuota);
 		nord.add(uno);
 		nord.add(due);
 		nord.add(tre);
@@ -38,25 +42,10 @@ public class RegistroVendite extends JPanel {
 		
 		//creo pannelli al centro
 		
-		JPanel centro= new JPanel();
-		centro.setLayout(new GridLayout(0,4));
-		
-		this.add(centro, BorderLayout.CENTER);
-		
-		/*JTextArea date= new JTextArea();
-		JTextArea nomelibro= new JTextArea();
-		JTextArea infocliente=new JTextArea();
-		JTextArea prezzo= new JTextArea(); */
+		JPanel centro=new RegistroManager().getCentro();
+		this.add(centro,BorderLayout.CENTER);
 		this.setVisible(true);
 		
 	}
-	
-	public static RegistroVendite getIstance(){
-		if(istance==null){
-			istance=new RegistroVendite();
-		}
-		return istance;
-	}
-	
 	
 }
