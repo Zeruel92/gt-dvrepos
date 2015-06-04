@@ -28,27 +28,22 @@ public class RegistroManager {
 			String nomel=rs.getString("titolo");
 			JLabel nomelibro=new JLabel();
 			nomelibro.setText(nomel);
-			//r.setNomelibro(nomelibro);
-			//System.out.println(nomelibro.getText());
 			centro.add(nomelibro);
 			
 			Date data=rs.getDate("data_vendita");
 			JLabel date=new JLabel();
 			date.setText(data.toString());
-			//System.out.println(date.getText());
 			centro.add(date);
 			
 			String cliente=rs.getString("nome");
 			JLabel infocliente=new JLabel();
 			infocliente.setText(cliente);
-			//System.out.println(infocliente.getText());
 			centro.add(infocliente);
 			
 			
 			int price=rs.getInt("costo");
 			JLabel prezzo=new JLabel();
 			prezzo.setText(Integer.toString(price));
-			//System.out.println(prezzo.getText());
 			centro.add(prezzo);
 			
 			if(rs.isLast())

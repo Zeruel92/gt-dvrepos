@@ -31,14 +31,11 @@ public class RegistroVendite extends JPanel {
 		JLabel due= new JLabel("Data di Vendita");
 		JLabel tre= new JLabel("Info Cliente");
 		JLabel quattro= new JLabel("Prezzo Libro");
-		//JLabel vuota=new JLabel("");
 	
-		//nord.add(vuota);
 		nord.add(uno);
 		nord.add(due);
 		nord.add(tre);
 		nord.add(quattro);
-		
 		
 		//creo pannelli al centro
 		
