@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+import it.unisalento.Main;
 import it.unisalento.model.Utente;
 import it.unisalento.actionListener.RiepilogoListener;
 import it.unisalento.dao.Chart;
@@ -47,7 +48,7 @@ public class Riepilogo extends JFrame {
 		JLabel datiLibri=new JLabel();
 		String sdatiLibri="<html>Riepilogo dai acquisto:<br>"
 				+"Numero libri acquistati: "+chart.getDim()
-				+"<br>Totale Costo: "+chart.getTotale()
+				+"<br>Totale Costo: "+chart.getTotale()+Main.EURO
 				+"</htm>";
 		datiLibri.setText(sdatiLibri);
 		p.add(datiLibri);

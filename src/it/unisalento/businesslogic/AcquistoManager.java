@@ -31,7 +31,11 @@ public class AcquistoManager {
                    }
          
                    else {
-                       JOptionPane.showMessageDialog(null,"Libro: "+c.getItem(i).getTitolo()+" non disponibile");
+                      int choose= JOptionPane.showConfirmDialog(null,"Libro: "+c.getItem(i).getTitolo()+" non disponibile","Vuoi prenotare una richiesta d'ordine?",JOptionPane.YES_NO_OPTION);
+                    if (choose==JOptionPane.YES_OPTION)  {
+                      String query="Insert into Richieste values (null,"+c.getItem(i).getIdlibro()+","+u.getIdutente()+",1);";
+                      d.inserisciNuovo(query);
+                    }
                    }
 		}
 		c.svuotaCarrello();
