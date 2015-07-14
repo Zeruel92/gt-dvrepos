@@ -22,6 +22,7 @@ public class UserInterface extends JFrame {
 		catalogo= new Catalogo();
 		carrello=new Carrello();
 		registrovendite= new RegistroVendite();
+		gestionelibreria=new GestioneLibreria();
 		add(schede);
 		if(u.getTipo()==0)
 		{
