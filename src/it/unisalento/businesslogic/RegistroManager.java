@@ -1,4 +1,5 @@
 package it.unisalento.businesslogic;
+import it.unisalento.Main;
 import it.unisalento.view.RegistroVendite;
 import it.unisalento.dbinterface.*;
 
@@ -43,7 +44,7 @@ public class RegistroManager {
 			
 			int price=rs.getInt("costo");
 			JLabel prezzo=new JLabel();
-			prezzo.setText(Integer.toString(price));
+			prezzo.setText(Integer.toString(price) + Main.EURO);
 			centro.add(prezzo);
 			
 			if(rs.isLast())
