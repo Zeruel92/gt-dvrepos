@@ -43,9 +43,9 @@ import it.unisalento.view.ModificaLibro;
 	public void update(){
 		libreria.removeAllElements();
 		try{
-			ResultSet rs=db.getIstance().eseguiQuery("Select l.idLibro, l.titolo, l.genere, l.costo, l.giacenza, a.nome, a.cognome, e.nome as casaed\n"+
-"from Libro as l, Autore as a, CasaEditrice as e \n"+
-"where l.idAutore=a.idAutore and l.idCasaEd=e.idCasaEd");
+			ResultSet rs=db.getIstance().eseguiQuery("Select l.idLibro, l.titolo, g.genere, l.costo, l.giacenza, a.nome, a.cognome, e.nome as casaed\n"+
+"from Libro as l, Autore as a, CasaEditrice as e, Genere as g \n"+
+"where l.idAutore=a.idAutore and l.idCasaEd=e.idCasaEd and l.idGenere=g.idGenere");
 			
 			while (rs.next())
 			{
@@ -68,9 +68,10 @@ import it.unisalento.view.ModificaLibro;
 	public Libreria()
 	{
 		try{
-			ResultSet rs=db.getIstance().eseguiQuery("Select l.idLibro, l.titolo, l.genere, l.costo, l.giacenza, a.nome, a.cognome, e.nome as casaed\n"+
-"from Libro as l, Autore as a, CasaEditrice as e \n"+
-"where l.idAutore=a.idAutore and l.idCasaEd=e.idCasaEd");
+			ResultSet rs=db.getIstance().eseguiQuery("Select l.idLibro, l.titolo, g.genere, l.costo, l.giacenza, a.nome, a.cognome, e.nome as casaed\n"+
+"from Libro as l, Autore as a, CasaEditrice as e, Genere as g \n"+
+"where l.idAutore=a.idAutore and l.idCasaEd=e.idCasaEd and l.idGenere=g.idGenere \n"+
+"Order By l.idLibro ASC");
 			
 			while (rs.next())
 			{
