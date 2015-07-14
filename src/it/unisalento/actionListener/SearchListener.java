@@ -19,7 +19,7 @@ public class SearchListener implements ActionListener{
 		if (e.getActionCommand().equals("cerca"))
 		{
 			
-			Research r=new Research();
+			//Research r=new Research();
 		}
 	}
 	

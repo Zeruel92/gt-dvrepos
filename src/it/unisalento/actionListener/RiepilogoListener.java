@@ -26,7 +26,7 @@ public class RiepilogoListener implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+		
 		String command=arg0.getActionCommand();
 		if(command.equals(ACTION_CONFIRM)){
 			AcquistoManager a=new AcquistoManager();

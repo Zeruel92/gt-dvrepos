@@ -47,7 +47,7 @@ public class GestioneLibreria extends JPanel {
 			JLabel costo=new JLabel(Float.toString(ll.getCosto()));
 			JLabel giac=new JLabel(Integer.toString(ll.getGiacenza()));
 			items.addElement(new JRadioButton(Integer.toString(ll.getIdlibro())));
-			items.lastElement().setActionCommand(Integer.toString(i));
+			items.lastElement().setActionCommand(Integer.toString(ll.getIdlibro()));
 			group.add(items.lastElement());
 			p1.add(items.lastElement());
 			p1.add(titolo);
@@ -72,5 +72,8 @@ public class GestioneLibreria extends JPanel {
 		p2.add(modifica);
 		p2.add(cancella);
 		p2.add(aggiungi);
+	}
+	public ButtonGroup getGroup(){
+		return group;
 	}
 }
