@@ -22,7 +22,6 @@ public class Research {
 							System.out.println(rs.getString("titolo"));
 						}
 					} catch (SQLException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
