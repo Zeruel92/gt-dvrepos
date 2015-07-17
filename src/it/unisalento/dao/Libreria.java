@@ -10,22 +10,26 @@ import java.util.Vector;
 import it.unisalento.model.Libro;
 import it.unisalento.view.ModificaLibro;
 
-	public class Libreria {
-		private	static Vector<Libro> libreria= new Vector<Libro>();
-		private	ModificaLibro modifica;
-		private DBManager db;
-		private static Libreria istance;
-		public static Libreria getIstance(){
-			if(istance==null){
-				istance=new Libreria();
-			}
-			return istance;
+public class Libreria {
+	private	static Vector<Libro> libreria= new Vector<Libro>();
+	private	ModificaLibro modifica;
+	private DBManager db;
+	private static Libreria istance;
+	private final String query="Select l.idLibro, l.titolo, g.genere, l.costo, l.giacenza, a.nome, a.cognome, e.nome as casaed\n"+
+			"from Libro as l, Autore as a, CasaEditrice as e, Genere as g \n"+
+			"where l.idAutore=a.idAutore and l.idCasaEd=e.idCasaEd and l.idGenere=g.idGenere";
+
+	public static Libreria getIstance(){
+		if(istance==null){
+			istance=new Libreria();
 		}
+		return istance;
+	}
 	public void modificaLibro(Libro l)
 	{
 		modifica= new ModificaLibro(l);
 	}
-	
+
 	public Libro getLibro(int index){
 		return libreria.elementAt(index);
 	}
@@ -43,10 +47,8 @@ import it.unisalento.view.ModificaLibro;
 	public void update(){
 		libreria.removeAllElements();
 		try{
-			ResultSet rs=db.getIstance().eseguiQuery("Select l.idLibro, l.titolo, g.genere, l.costo, l.giacenza, a.nome, a.cognome, e.nome as casaed\n"+
-"from Libro as l, Autore as a, CasaEditrice as e, Genere as g \n"+
-"where l.idAutore=a.idAutore and l.idCasaEd=e.idCasaEd and l.idGenere=g.idGenere");
-			
+			ResultSet rs=db.getIstance().eseguiQuery(query);
+
 			while (rs.next())
 			{
 				int idlibro= Integer.parseInt(rs.getString("idLibro"));
@@ -58,21 +60,18 @@ import it.unisalento.view.ModificaLibro;
 				String genere=rs.getString("genere");
 				Libro l=new Libro(idlibro, titolo, autore, casaedi, costo, giacenza, genere);
 				libreria.addElement(l);
-				
+
 			}
-			
+
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
 	}
-	public Libreria()
+	private Libreria()
 	{
 		try{
-			ResultSet rs=db.getIstance().eseguiQuery("Select l.idLibro, l.titolo, g.genere, l.costo, l.giacenza, a.nome, a.cognome, e.nome as casaed\n"+
-"from Libro as l, Autore as a, CasaEditrice as e, Genere as g \n"+
-"where l.idAutore=a.idAutore and l.idCasaEd=e.idCasaEd and l.idGenere=g.idGenere \n"+
-"Order By l.idLibro ASC");
-			
+			ResultSet rs=db.getIstance().eseguiQuery(query);
+
 			while (rs.next())
 			{
 				int idlibro= Integer.parseInt(rs.getString("idLibro"));
@@ -84,14 +83,14 @@ import it.unisalento.view.ModificaLibro;
 				String genere=rs.getString("genere");
 				Libro l=new Libro(idlibro, titolo, autore, casaedi, costo, giacenza, genere);
 				libreria.addElement(l);
-				
+
 			}
-			
+
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-		
-		
+
+
 	}
 
 }

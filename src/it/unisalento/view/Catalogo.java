@@ -23,7 +23,7 @@ public class Catalogo extends JPanel {
 	private JButton search;
 	private Libreria lib;
 	private Vector<JCheckBox> selection;
-	
+
 	public Catalogo(){
 		this.setLayout(new BorderLayout());
 		center=new JPanel();
@@ -49,7 +49,7 @@ public class Catalogo extends JPanel {
 		center.add(new JLabel("Prezzo"));
 		center.add(new JLabel("Giacenza"));
 		selection=new Vector<JCheckBox>();
-		
+
 		for (int i=0;i<lib.getDim();i++){
 			Libro l= lib.getLibro(i);
 			JCheckBox c=new JCheckBox(Integer.toString(l.getIdlibro()));

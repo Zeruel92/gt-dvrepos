@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 public class GestioneLibreria extends JPanel {
-	
+
 	private Libreria l;
 	private Vector<JRadioButton> items;
 	private ButtonGroup group;
@@ -26,7 +26,7 @@ public class GestioneLibreria extends JPanel {
 	private JButton aggiungi;
 	private ButtonGroup group1;
 	private JRadioButton autore,libro,genere,casa;
-	
+
 	public GestioneLibreria(){
 		l=Libreria.getIstance();
 		items=new Vector<JRadioButton>();
@@ -34,7 +34,7 @@ public class GestioneLibreria extends JPanel {
 		modifica=new JButton("Modifica");
 		cancella=new JButton("Cancella");
 		aggiungi=new JButton("Aggiungi");
-		
+
 		autore=new JRadioButton("Autore");
 		autore.addActionListener(new GestioneLibreriaListener(this));
 		autore.setActionCommand(GestioneLibreriaListener.RADIO_AUTORE);

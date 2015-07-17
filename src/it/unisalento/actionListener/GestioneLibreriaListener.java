@@ -21,12 +21,12 @@ public class GestioneLibreriaListener implements ActionListener {
 
 	private GestioneLibreria g;
 	private int edit;
-	
+
 
 	public GestioneLibreriaListener(GestioneLibreria g) {
 		this.g=g;
 		edit=0;
-		
+
 	}
 
 	@Override

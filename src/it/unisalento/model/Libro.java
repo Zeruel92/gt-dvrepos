@@ -51,7 +51,7 @@ public class Libro {
 	public void setGiacenza(int giacenza) {
 		this.giacenza = giacenza;
 	}
-	
+
 	public Libro(int idlibro, String titolo, String autore, String casaedi, float costo, int giacenza, String genere ){
 		this.idlibro=idlibro;
 		this.titolo=titolo;
@@ -60,9 +60,9 @@ public class Libro {
 		this.costo=costo;
 		this.giacenza=giacenza;
 		this.genere=genere;
-		
+
 	}
 	public Libro(){
-		
+
 	}
 }
