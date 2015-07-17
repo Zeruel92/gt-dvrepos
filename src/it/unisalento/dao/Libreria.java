@@ -26,10 +26,6 @@ public class Libreria {
 		}
 		return istance;
 	}
-	public void modificaLibro(Libro l)
-	{
-		modifica= new ModificaForm(l);
-	}
 
 	public Libro getLibro(int index){
 		return libreria.elementAt(index);
