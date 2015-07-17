@@ -72,7 +72,7 @@ public class GestioneLibreriaListener implements ActionListener {
 					//TODO elimina autore
 				}
 				else{
-					//TODO elimina autore
+					//TODO aggiungi autore
 				}
 				break;
 			}
@@ -84,7 +84,7 @@ public class GestioneLibreriaListener implements ActionListener {
 					//TODO elimina genere
 				}
 				else{
-					//TODO elimina genere
+					//TODO aggiungi genere
 				}
 				break;
 			}
@@ -96,7 +96,7 @@ public class GestioneLibreriaListener implements ActionListener {
 					//TODO elimina casaed
 				}
 				else{
-					//TODO elimina casaed
+					//TODO aggiungi casaed
 				}
 				break;
 			}

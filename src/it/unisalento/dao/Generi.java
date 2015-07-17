@@ -12,7 +12,7 @@ public class Generi {
 	private static Generi istance;
 	private Vector<Genere> lista;
 	private DBManager db;
-	private final String query="SELECT * FORM genere";
+	private final String query="SELECT * FROM genere";
 
 	public static Generi getIstance(){
 		if(istance==null){
@@ -28,7 +28,7 @@ public class Generi {
 		try {
 			while(rs.next()){
 				int id=Integer.parseInt(rs.getString("idGenere"));
-				String nome=rs.getString("nome");
+				String nome=rs.getString("genere");
 				lista.addElement(new Genere(id,nome));
 			}
 		} catch (SQLException e) {
@@ -40,7 +40,7 @@ public class Generi {
 		try {
 			while(rs.next()){
 				int id=Integer.parseInt(rs.getString("idGenere"));
-				String nome=rs.getString("nome");
+				String nome=rs.getString("genere");
 				lista.addElement(new Genere(id,nome));
 			}
 		} catch (SQLException e) {

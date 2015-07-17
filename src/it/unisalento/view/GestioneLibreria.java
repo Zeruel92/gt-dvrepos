@@ -6,8 +6,12 @@ import java.util.Vector;
 
 import it.unisalento.actionListener.GestioneLibreriaListener;
 import it.unisalento.dao.Autori;
+import it.unisalento.dao.CaseEditrici;
+import it.unisalento.dao.Generi;
 import it.unisalento.dao.Libreria;
 import it.unisalento.model.Autore;
+import it.unisalento.model.CasaEditrice;
+import it.unisalento.model.Genere;
 import it.unisalento.model.Libro;
 
 import javax.swing.ButtonGroup;
@@ -181,7 +185,18 @@ public class GestioneLibreria extends JPanel {
 		p1.add(new JLabel());
 		p1.add(new JLabel("Nome Casa Editrice"));
 		p1.add(new JLabel("Partita IVA"));
-		//TODO INSERIRE DATI CASE
+		CaseEditrici ee=CaseEditrici.getIstance();
+		for(int i=0;i<ee.getDim();i++){
+			CasaEditrice e=ee.getCasa(i);
+			JLabel nome=new JLabel(e.getNome());
+			JLabel piva =new JLabel(e.getPiva());
+			items.addElement(new JRadioButton(Integer.toString(e.getId())));
+			items.lastElement().setActionCommand(Integer.toString(e.getId()));
+			group.add(items.lastElement());
+			p1.add(items.lastElement());
+			p1.add(nome);
+			p1.add(piva);
+		}
 		JPanel p2=new JPanel();
 		p2.setLayout(new GridLayout(0,3));
 		this.add(p2,BorderLayout.SOUTH);
@@ -214,7 +229,16 @@ public class GestioneLibreria extends JPanel {
 		this.add(p1,BorderLayout.CENTER);
 		p1.add(new JLabel());
 		p1.add(new JLabel("Nome Genere"));
-		//TODO INSERIRE DATI GENERE		
+		Generi gg=Generi.getIstance();
+		for(int i=0; i<gg.getDim();i++){
+			Genere g=gg.getGenere(i);
+			JLabel nome=new JLabel(g.getNome());
+			items.addElement(new JRadioButton(Integer.toString(g.getId())));
+			items.lastElement().setActionCommand(Integer.toString(g.getId()));
+			group.add(items.lastElement());
+			p1.add(items.lastElement());
+			p1.add(nome);
+		}
 		JPanel p2=new JPanel();
 		p2.setLayout(new GridLayout(0,3));
 		this.add(p2,BorderLayout.SOUTH);
