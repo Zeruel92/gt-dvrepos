@@ -5,7 +5,9 @@ import java.awt.GridLayout;
 import java.util.Vector;
 
 import it.unisalento.actionListener.GestioneLibreriaListener;
+import it.unisalento.dao.Autori;
 import it.unisalento.dao.Libreria;
+import it.unisalento.model.Autore;
 import it.unisalento.model.Libro;
 
 import javax.swing.ButtonGroup;
@@ -55,8 +57,12 @@ public class GestioneLibreria extends JPanel {
 	public ButtonGroup getGroup(){
 		return group;
 	}
+	private void resetGroup(){
+		group=new ButtonGroup();
+	}
 	public void setLibroEdit(){
 		this.removeAll();
+		resetGroup();
 		libro.setSelected(true);
 		this.setLayout(new BorderLayout());
 		JPanel p0=new JPanel();
@@ -113,6 +119,7 @@ public class GestioneLibreria extends JPanel {
 	}
 	public void setAutoreEdit(){
 		this.removeAll();
+		resetGroup();
 		this.setLayout(new BorderLayout());
 		JPanel p0=new JPanel();
 		p0.setLayout(new GridLayout(0,5));
@@ -126,8 +133,100 @@ public class GestioneLibreria extends JPanel {
 		JPanel p1=new JPanel();
 		p1.setLayout(new GridLayout(0,3));
 		this.add(p1,BorderLayout.CENTER);
-		
+		p1.add(new JLabel());
+		p1.add(new JLabel("Nome Autore"));
+		p1.add(new JLabel("Cognome Autore"));
+		Autori a=Autori.getIstance();
+		for (int i=0; i < a.getDim(); i++){
+			Autore aa=a.getAutore(i);
+			JLabel nome=new JLabel(aa.getNome());
+			JLabel cognome =new JLabel(aa.getCognome());
+			items.addElement(new JRadioButton(Integer.toString(aa.getId())));
+			items.lastElement().setActionCommand(Integer.toString(aa.getId()));
+			group.add(items.lastElement());
+			p1.add(items.lastElement());
+			p1.add(nome);
+			p1.add(cognome);
+		}
+		JPanel p2=new JPanel();
+		p2.setLayout(new GridLayout(0,3));
+		this.add(p2,BorderLayout.SOUTH);
+		modifica.addActionListener(new GestioneLibreriaListener(this));
+		modifica.setActionCommand(GestioneLibreriaListener.ACTION_EDIT);
+		cancella.addActionListener(new GestioneLibreriaListener(this));
+		cancella.setActionCommand(GestioneLibreriaListener.ACTION_DELETE);
+		aggiungi.addActionListener(new GestioneLibreriaListener(this));
+		aggiungi.setActionCommand(GestioneLibreriaListener.ACTION_ADD);
+		p2.add(modifica);
+		p2.add(cancella);
+		p2.add(aggiungi);
+		this.repaint();
+	}
+	public void setCasa(){
+		this.removeAll();
+		resetGroup();
+		this.setLayout(new BorderLayout());
+		JPanel p0=new JPanel();
+		p0.setLayout(new GridLayout(0,5));
+		this.add(p0,BorderLayout.NORTH);
+		JLabel label=new JLabel("Seleziona cosa modificare:");
+		p0.add(label);
+		p0.add(libro);
+		p0.add(autore);
+		p0.add(casa);
+		p0.add(genere);
+		JPanel p1=new JPanel();
+		p1.setLayout(new GridLayout(0,3));
+		this.add(p1,BorderLayout.CENTER);
+		p1.add(new JLabel());
+		p1.add(new JLabel("Nome Casa Editrice"));
+		p1.add(new JLabel("Partita IVA"));
+		//TODO INSERIRE DATI CASE
+		JPanel p2=new JPanel();
+		p2.setLayout(new GridLayout(0,3));
+		this.add(p2,BorderLayout.SOUTH);
+		modifica.addActionListener(new GestioneLibreriaListener(this));
+		modifica.setActionCommand(GestioneLibreriaListener.ACTION_EDIT);
+		cancella.addActionListener(new GestioneLibreriaListener(this));
+		cancella.setActionCommand(GestioneLibreriaListener.ACTION_DELETE);
+		aggiungi.addActionListener(new GestioneLibreriaListener(this));
+		aggiungi.setActionCommand(GestioneLibreriaListener.ACTION_ADD);
+		p2.add(modifica);
+		p2.add(cancella);
+		p2.add(aggiungi);
+		this.repaint();
+	}
+	public void setGenere(){
+		this.removeAll();
+		resetGroup();
+		this.setLayout(new BorderLayout());
+		JPanel p0=new JPanel();
+		p0.setLayout(new GridLayout(0,5));
+		this.add(p0,BorderLayout.NORTH);
+		JLabel label=new JLabel("Seleziona cosa modificare:");
+		p0.add(label);
+		p0.add(libro);
+		p0.add(autore);
+		p0.add(casa);
+		p0.add(genere);
+		JPanel p1=new JPanel();
+		p1.setLayout(new GridLayout(0,2));
+		this.add(p1,BorderLayout.CENTER);
+		p1.add(new JLabel());
+		p1.add(new JLabel("Nome Genere"));
+		//TODO INSERIRE DATI GENERE		
+		JPanel p2=new JPanel();
+		p2.setLayout(new GridLayout(0,3));
+		this.add(p2,BorderLayout.SOUTH);
+		modifica.addActionListener(new GestioneLibreriaListener(this));
+		modifica.setActionCommand(GestioneLibreriaListener.ACTION_EDIT);
+		cancella.addActionListener(new GestioneLibreriaListener(this));
+		cancella.setActionCommand(GestioneLibreriaListener.ACTION_DELETE);
+		aggiungi.addActionListener(new GestioneLibreriaListener(this));
+		aggiungi.setActionCommand(GestioneLibreriaListener.ACTION_ADD);
+		p2.add(modifica);
+		p2.add(cancella);
+		p2.add(aggiungi);
 		this.repaint();
 	}
 }
-//TODO Implementare gestione Autori/Casa/Genere
