@@ -1,5 +1,6 @@
 package it.unisalento.actionListener;
 
+import it.unisalento.businesslogic.LibreriaManager;
 import it.unisalento.dao.Libreria;
 import it.unisalento.model.Libro;
 import it.unisalento.view.GestioneLibreria;
@@ -20,13 +21,14 @@ public class GestioneLibreriaListener implements ActionListener {
 	public static final String RADIO_GENERE="genere";
 
 	private GestioneLibreria g;
+	private LibreriaManager lm;
 	private int edit;
 
 
 	public GestioneLibreriaListener(GestioneLibreria g) {
 		this.g=g;
+		lm=new LibreriaManager();
 		edit=0;
-
 	}
 
 	@Override
@@ -54,7 +56,7 @@ public class GestioneLibreriaListener implements ActionListener {
 				if(command.equals(ACTION_EDIT)){
 					ButtonGroup bg=g.getGroup();
 					int id= Integer.parseInt(bg.getSelection().getActionCommand());
-					//TODO modifica libro
+					lm.edit(id,edit);
 				}
 				if(command.equals(ACTION_DELETE)){
 					//TODO eliminazione di un libro

@@ -8,16 +8,17 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 import it.unisalento.model.Libro;
-import it.unisalento.view.ModificaLibro;
+import it.unisalento.view.ModificaForm;
 
 public class Libreria {
 	private	static Vector<Libro> libreria= new Vector<Libro>();
-	private	ModificaLibro modifica;
+	private	ModificaForm modifica;
 	private DBManager db;
 	private static Libreria istance;
 	private final String query="Select l.idLibro, l.titolo, g.genere, l.costo, l.giacenza, a.nome, a.cognome, e.nome as casaed\n"+
 			"from Libro as l, Autore as a, CasaEditrice as e, Genere as g \n"+
-			"where l.idAutore=a.idAutore and l.idCasaEd=e.idCasaEd and l.idGenere=g.idGenere";
+			"where l.idAutore=a.idAutore and l.idCasaEd=e.idCasaEd and l.idGenere=g.idGenere \n"
+			+ "ORDER BY l.idLibro";
 
 	public static Libreria getIstance(){
 		if(istance==null){
@@ -27,7 +28,7 @@ public class Libreria {
 	}
 	public void modificaLibro(Libro l)
 	{
-		modifica= new ModificaLibro(l);
+		modifica= new ModificaForm(l);
 	}
 
 	public Libro getLibro(int index){

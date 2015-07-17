@@ -47,3 +47,4 @@ public class RegListener implements ActionListener {
 	
 	}
 }
+//TODO Sistemare la ricomparsa della schermata di Login dopo registrazione
