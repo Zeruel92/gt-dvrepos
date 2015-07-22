@@ -4,6 +4,7 @@ import it.unisalento.businesslogic.LibreriaManager;
 import it.unisalento.dao.Libreria;
 import it.unisalento.model.Libro;
 import it.unisalento.view.GestioneLibreria;
+import it.unisalento.view.ModificaForm;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -56,7 +57,9 @@ public class GestioneLibreriaListener implements ActionListener {
 				if(command.equals(ACTION_EDIT)){
 					ButtonGroup bg=g.getGroup();
 					int id= Integer.parseInt(bg.getSelection().getActionCommand());
-					lm.edit(id,edit);
+					Libro l=Libreria.getIstance().getLibro(id-1);
+					ModificaForm f=new ModificaForm(l,edit);
+					f.setVisible(true);
 				}
 				if(command.equals(ACTION_DELETE)){
 					//TODO eliminazione di un libro

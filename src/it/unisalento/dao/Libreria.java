@@ -15,7 +15,7 @@ public class Libreria {
 	private	ModificaForm modifica;
 	private DBManager db;
 	private static Libreria istance;
-	private final String query="Select l.idLibro, l.titolo, g.genere, l.costo, l.giacenza, a.nome, a.cognome, e.nome as casaed\n"+
+	private final String query="Select l.idLibro, l.titolo, g.genere, l.costo, l.giacenza, a.idAutore, e.idCasaEd as casaed\n"+
 			"from Libro as l, Autore as a, CasaEditrice as e, Genere as g \n"+
 			"where l.idAutore=a.idAutore and l.idCasaEd=e.idCasaEd and l.idGenere=g.idGenere \n"
 			+ "ORDER BY l.idLibro";
@@ -50,8 +50,8 @@ public class Libreria {
 			{
 				int idlibro= Integer.parseInt(rs.getString("idLibro"));
 				String titolo=rs.getString("titolo");
-				String autore=rs.getString("nome")+" "+rs.getString("cognome");
-				String casaedi=rs.getString("casaed");
+				int autore=Integer.parseInt(rs.getString("idAutore"));
+			    int casaedi=Integer.parseInt(rs.getString("casaed"));
 				float costo=Float.parseFloat(rs.getString("costo"));
 				int giacenza=Integer.parseInt(rs.getString("giacenza"));
 				String genere=rs.getString("genere");
@@ -73,8 +73,8 @@ public class Libreria {
 			{
 				int idlibro= Integer.parseInt(rs.getString("idLibro"));
 				String titolo=rs.getString("titolo");
-				String autore=rs.getString("nome")+" "+rs.getString("cognome");
-				String casaedi=rs.getString("casaed");
+				int autore=Integer.parseInt(rs.getString("idAutore"));
+				int casaedi=Integer.parseInt(rs.getString("casaed"));
 				float costo=Float.parseFloat(rs.getString("costo"));
 				int giacenza=Integer.parseInt(rs.getString("giacenza"));
 				String genere=rs.getString("genere");

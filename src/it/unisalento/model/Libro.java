@@ -3,8 +3,9 @@ package it.unisalento.model;
 public class Libro {
 	private int idlibro;
 	private String titolo;
-	private String autore;
-	private String casaedi;
+	//private String autore;
+	private int idAutore;
+	private int casaedi;
 	private float costo;
 	private int giacenza;
 	private String genere;
@@ -21,16 +22,16 @@ public class Libro {
 	public void setTitolo(String titolo) {
 		this.titolo = titolo;
 	}
-	public String getAutore() {
-		return autore;
+	public int getAutore() {
+		return idAutore;
 	}
-	public void setAutore(String autore) {
-		this.autore = autore;
+	public void setAutore(int autore) {
+		this.idAutore = autore;
 	}
-	public String getCasaedi() {
+	public int getCasaedi() {
 		return casaedi;
 	}
-	public void setCasaedi(String casaedi) {
+	public void setCasaedi(int casaedi) {
 		this.casaedi = casaedi;
 	}
 	public String getGenere() {
@@ -52,10 +53,10 @@ public class Libro {
 		this.giacenza = giacenza;
 	}
 
-	public Libro(int idlibro, String titolo, String autore, String casaedi, float costo, int giacenza, String genere ){
+	public Libro(int idlibro, String titolo, int idAutore, int casaedi, float costo, int giacenza, String genere ){
 		this.idlibro=idlibro;
 		this.titolo=titolo;
-		this.autore=autore;
+		this.idAutore=idAutore;
 		this.casaedi=casaedi;
 		this.costo=costo;
 		this.giacenza=giacenza;

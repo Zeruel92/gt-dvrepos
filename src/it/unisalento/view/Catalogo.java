@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import it.unisalento.Main;
 import it.unisalento.actionListener.CatalogoListener;
 import it.unisalento.dao.*;
+import it.unisalento.model.Autore;
+import it.unisalento.model.CasaEditrice;
 import it.unisalento.model.Libro;
 
 public class Catalogo extends JPanel {
@@ -56,8 +58,12 @@ public class Catalogo extends JPanel {
 			selection.add(c);
 			JLabel titolo,autore,casaed,genere,prezzo,giac;
 			titolo=new JLabel(l.getTitolo());
-			autore=new JLabel(l.getAutore());
-			casaed=new JLabel(l.getCasaedi());
+			int idautore=l.getAutore()-1;
+			Autore a=Autori.getIstance().getAutore(idautore);
+			autore=new JLabel(a.getNome()+" "+a.getCognome());
+			int idCasa=l.getCasaedi()-1;
+			CasaEditrice e=CaseEditrici.getIstance().getCasa(idCasa);
+			casaed=new JLabel(e.getNome());
 			genere=new JLabel(l.getGenere());
 			prezzo=new JLabel(Float.toString(l.getCosto())+Main.EURO);
 			giac=new JLabel(Integer.toString(l.getGiacenza()));

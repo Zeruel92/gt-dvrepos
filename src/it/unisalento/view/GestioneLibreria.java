@@ -91,8 +91,12 @@ public class GestioneLibreria extends JPanel {
 		for (int i=0; i < l.getDim(); i++){
 			Libro ll=l.getLibro(i);
 			JLabel titolo=new JLabel(ll.getTitolo());
-			JLabel autore=new JLabel(ll.getAutore());
-			JLabel casa=new JLabel(ll.getCasaedi());
+			int idautore=ll.getAutore()-1;
+			Autore a=Autori.getIstance().getAutore(idautore);
+			JLabel autore=new JLabel(a.getNome()+" "+a.getCognome());
+			int idcasa=ll.getCasaedi()-1;
+			CasaEditrice e=CaseEditrici.getIstance().getCasa(idcasa);
+			JLabel casa=new JLabel(e.getNome());
 			JLabel genere=new JLabel(ll.getGenere());
 			JLabel costo=new JLabel(Float.toString(ll.getCosto()));
 			JLabel giac=new JLabel(Integer.toString(ll.getGiacenza()));

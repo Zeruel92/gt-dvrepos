@@ -9,8 +9,12 @@ import java.util.Vector;
 import it.unisalento.Main;
 import it.unisalento.actionListener.CarrelloListener;
 import it.unisalento.actionListener.CatalogoListener;
+import it.unisalento.dao.Autori;
+import it.unisalento.dao.CaseEditrici;
 import it.unisalento.dao.Chart;
 import it.unisalento.dao.Libreria;
+import it.unisalento.model.Autore;
+import it.unisalento.model.CasaEditrice;
 import it.unisalento.model.Utente;
 
 import javax.swing.JButton;
@@ -62,8 +66,12 @@ public class Carrello extends JPanel implements Runnable{
 		JButton rimuovi;
 		for (int i=0;i<chart.getDim();i++){
 			titolo=new JLabel(chart.getItem(i).getTitolo());
-			autore=new JLabel(chart.getItem(i).getAutore());
-			casaed=new JLabel(chart.getItem(i).getCasaedi());
+			int idautore=chart.getItem(i).getAutore();
+			Autore a=Autori.getIstance().getAutore(idautore);
+			autore=new JLabel(a.getNome()+" "+a.getCognome());
+			int idcasa=chart.getItem(i).getCasaedi();
+			CasaEditrice e=CaseEditrici.getIstance().getCasa(idcasa);
+			casaed=new JLabel(e.getNome());
 			genere=new JLabel(chart.getItem(i).getGenere());
 			prezzo=new JLabel(Float.toString(chart.getItem(i).getCosto())+Main.EURO);
 			rimuovi=new JButton("Rimuovi");
