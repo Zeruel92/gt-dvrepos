@@ -53,4 +53,12 @@ public class Generi {
 	public int getDim(){
 		return lista.size();
 	}
+	
+	public String[] getArray(){
+		String array[]=new String[lista.size()];
+		for (int i=0;i<lista.size();i++){
+			array[i]=lista.elementAt(i).getNome();
+		}
+		return array;
+	}
 }

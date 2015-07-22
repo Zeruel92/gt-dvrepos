@@ -3,12 +3,12 @@ package it.unisalento.model;
 public class Libro {
 	private int idlibro;
 	private String titolo;
-	//private String autore;
 	private int idAutore;
 	private int casaedi;
 	private float costo;
 	private int giacenza;
-	private String genere;
+	private int genere;
+	
 	public int getIdlibro(){
 		return idlibro;
 	}
@@ -34,10 +34,10 @@ public class Libro {
 	public void setCasaedi(int casaedi) {
 		this.casaedi = casaedi;
 	}
-	public String getGenere() {
+	public int getGenere() {
 		return genere;
 	}
-	public void setGenere(String genere) {
+	public void setGenere(int genere) {
 		this.genere = genere;
 	}
 	public float getCosto() {
@@ -53,7 +53,7 @@ public class Libro {
 		this.giacenza = giacenza;
 	}
 
-	public Libro(int idlibro, String titolo, int idAutore, int casaedi, float costo, int giacenza, String genere ){
+	public Libro(int idlibro, String titolo, int idAutore, int casaedi, float costo, int giacenza,int genere ){
 		this.idlibro=idlibro;
 		this.titolo=titolo;
 		this.idAutore=idAutore;

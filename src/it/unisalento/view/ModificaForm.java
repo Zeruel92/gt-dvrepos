@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 
 import it.unisalento.dao.Autori;
 import it.unisalento.dao.CaseEditrici;
+import it.unisalento.dao.Generi;
 import it.unisalento.model.Libro;
 
 import javax.swing.JButton;
@@ -21,6 +22,7 @@ public class ModificaForm extends JFrame{
 	private JTextField t0,t1,t2,t3,t4,t5;
 	private JLabel l0,l1,l2,l3,l4,l5;
 	private Libro l;
+	private JComboBox combo0,combo1,combo2;
 	
 	public ModificaForm(Libro l,int type){
 		if(type==0){
@@ -43,22 +45,38 @@ public class ModificaForm extends JFrame{
 		p.add(l0);
 		p.add(t0);
 		p.add(l1);
-		JComboBox combo=new JComboBox(Autori.getIstance().getArray());
-		combo.setSelectedIndex(l.getAutore()-1);
-		p.add(combo);
+	    combo0=new JComboBox(Autori.getIstance().getArray());
+		combo0.setSelectedIndex(l.getAutore()-1);
+		p.add(combo0);
 		l2=new JLabel("Casa Editrice");
 		p.add(l2);
-		JComboBox combo2=new JComboBox(CaseEditrici.getIstance().getArray());
-		combo2.setSelectedIndex(l.getCasaedi()-1);
+		combo1=new JComboBox(CaseEditrici.getIstance().getArray());
+		combo1.setSelectedIndex(l.getCasaedi()-1);
+		p.add(combo1);
+		l3=new JLabel("Genere");
+		p.add(l3);
+		combo2=new JComboBox(Generi.getIstance().getArray());
+		combo2.setSelectedIndex(l.getGenere()-1);
 		p.add(combo2);
+		l4=new JLabel("Costo");
+		t1=new JTextField();
+		t1.setText(Float.toString(l.getCosto()));
+		p.add(l4);
+		p.add(t1);
+		l5=new JLabel("Giacenza");
+		t2=new JTextField();
+		t2.setText(Integer.toString(l.getGiacenza()));
+		p.add(l5);
+		p.add(t2);
 		confirm=new JButton("Applica");
 		cancel=new JButton("Annulla");
 		p.add(confirm);
 		p.add(cancel);
 		pack();
+		//TODO Aggiungere i Listener
 	}
 	private void addl(){
-		
+		//TODO Form aggiunta libro
 	}
 }
 

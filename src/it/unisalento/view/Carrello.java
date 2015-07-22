@@ -12,9 +12,11 @@ import it.unisalento.actionListener.CatalogoListener;
 import it.unisalento.dao.Autori;
 import it.unisalento.dao.CaseEditrici;
 import it.unisalento.dao.Chart;
+import it.unisalento.dao.Generi;
 import it.unisalento.dao.Libreria;
 import it.unisalento.model.Autore;
 import it.unisalento.model.CasaEditrice;
+import it.unisalento.model.Genere;
 import it.unisalento.model.Utente;
 
 import javax.swing.JButton;
@@ -72,7 +74,9 @@ public class Carrello extends JPanel implements Runnable{
 			int idcasa=chart.getItem(i).getCasaedi();
 			CasaEditrice e=CaseEditrici.getIstance().getCasa(idcasa);
 			casaed=new JLabel(e.getNome());
-			genere=new JLabel(chart.getItem(i).getGenere());
+			int idgenere=chart.getItem(i).getGenere()-1;
+			Genere g=Generi.getIstance().getGenere(idgenere);
+			genere=new JLabel(g.getNome());
 			prezzo=new JLabel(Float.toString(chart.getItem(i).getCosto())+Main.EURO);
 			rimuovi=new JButton("Rimuovi");
 			

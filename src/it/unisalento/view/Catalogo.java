@@ -16,6 +16,7 @@ import it.unisalento.actionListener.CatalogoListener;
 import it.unisalento.dao.*;
 import it.unisalento.model.Autore;
 import it.unisalento.model.CasaEditrice;
+import it.unisalento.model.Genere;
 import it.unisalento.model.Libro;
 
 public class Catalogo extends JPanel {
@@ -64,7 +65,9 @@ public class Catalogo extends JPanel {
 			int idCasa=l.getCasaedi()-1;
 			CasaEditrice e=CaseEditrici.getIstance().getCasa(idCasa);
 			casaed=new JLabel(e.getNome());
-			genere=new JLabel(l.getGenere());
+			int idgenere=l.getGenere()-1;
+			Genere g=Generi.getIstance().getGenere(idgenere);
+			genere=new JLabel(g.getNome());
 			prezzo=new JLabel(Float.toString(l.getCosto())+Main.EURO);
 			giac=new JLabel(Integer.toString(l.getGiacenza()));
 			center.add(c);

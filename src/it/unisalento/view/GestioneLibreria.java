@@ -97,7 +97,9 @@ public class GestioneLibreria extends JPanel {
 			int idcasa=ll.getCasaedi()-1;
 			CasaEditrice e=CaseEditrici.getIstance().getCasa(idcasa);
 			JLabel casa=new JLabel(e.getNome());
-			JLabel genere=new JLabel(ll.getGenere());
+			int idgenere=ll.getGenere()-1;
+			Genere g=Generi.getIstance().getGenere(idgenere);
+			JLabel genere=new JLabel(g.getNome());
 			JLabel costo=new JLabel(Float.toString(ll.getCosto()));
 			JLabel giac=new JLabel(Integer.toString(ll.getGiacenza()));
 			items.addElement(new JRadioButton(Integer.toString(ll.getIdlibro())));
