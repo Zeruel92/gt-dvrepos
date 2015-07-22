@@ -43,7 +43,6 @@ public class Catalogo extends JPanel {
 		south.add(search);
 		lib=Libreria.getIstance();
 		center.setLayout(new GridLayout(0,7));
-		System.out.println(lib.getDim());
 		center.add(new JLabel(" "));
 		center.add(new JLabel("Titolo"));
 		center.add(new JLabel("Autore"));
