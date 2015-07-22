@@ -1,7 +1,9 @@
 package it.unisalento.actionListener;
 
 import it.unisalento.businesslogic.LibreriaManager;
+import it.unisalento.dao.Autori;
 import it.unisalento.dao.Libreria;
+import it.unisalento.model.Autore;
 import it.unisalento.model.Libro;
 import it.unisalento.view.GestioneLibreria;
 import it.unisalento.view.ModificaForm;
@@ -53,35 +55,40 @@ public class GestioneLibreriaListener implements ActionListener {
 		}
 		else {
 			switch (edit){
-			case 0:{
+			case 0:
 				if(command.equals(ACTION_EDIT)){
 					ButtonGroup bg=g.getGroup();
 					int id= Integer.parseInt(bg.getSelection().getActionCommand());
 					Libro l=Libreria.getIstance().getLibro(id-1);
-					ModificaForm f=new ModificaForm(l,edit);
+					ModificaForm f=new ModificaForm(l);
 					f.setVisible(true);
 				}
-				if(command.equals(ACTION_DELETE)){
+				else if(command.equals(ACTION_DELETE)){
 					//TODO eliminazione di un libro
 				}
 				else{
-					//TODO aggiunta di un libro
+					ModificaForm f=new ModificaForm(new Libro());
+					f.setVisible(true);
 				}
 				break;
-			}
-			case 1:{
+			case 1:
 				if(command.equals(ACTION_EDIT)){
-					//TODO modifica autore
+					ButtonGroup bg=g.getGroup();
+					int id= Integer.parseInt(bg.getSelection().getActionCommand());
+					Autore a=Autori.getIstance().getAutore(id-1);
+					ModificaForm f=new ModificaForm(a);
+					f.setVisible(true);
 				}
 				else if(command.equals(ACTION_DELETE)){
 					//TODO elimina autore
 				}
 				else{
-					//TODO aggiungi autore
+					ModificaForm f=new ModificaForm(new Autore());
+					f.setVisible(true);
 				}
 				break;
-			}
-			case 2:{
+
+			case 2:
 				if(command.equals(ACTION_EDIT)){
 					//TODO modifica genere
 				}
@@ -92,8 +99,8 @@ public class GestioneLibreriaListener implements ActionListener {
 					//TODO aggiungi genere
 				}
 				break;
-			}
-			case 3: {
+
+			case 3:
 				if(command.equals(ACTION_EDIT)){
 					//TODO modifica casaed
 				}
@@ -104,7 +111,7 @@ public class GestioneLibreriaListener implements ActionListener {
 					//TODO aggiungi casaed
 				}
 				break;
-			}
+
 			default: break;
 			}
 		}

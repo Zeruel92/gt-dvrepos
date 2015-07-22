@@ -1,11 +1,16 @@
 package it.unisalento.model;
 
 public class Genere {
+	
 	int id;
 	String nome;
+	
 	public Genere(int id, String nome) {
 		this.id = id;
 		this.nome = nome;
+	}
+	public Genere(){
+		this.id=-1;
 	}
 	public int getId() {
 		return id;

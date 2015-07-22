@@ -30,7 +30,8 @@ public class GestioneLibreria extends JPanel {
 	private JButton aggiungi;
 	private ButtonGroup group1;
 	private JRadioButton autore,libro,genere,casa;
-
+	private GestioneLibreriaListener listner;
+	
 	public GestioneLibreria(){
 		l=Libreria.getIstance();
 		items=new Vector<JRadioButton>();
@@ -38,25 +39,32 @@ public class GestioneLibreria extends JPanel {
 		modifica=new JButton("Modifica");
 		cancella=new JButton("Cancella");
 		aggiungi=new JButton("Aggiungi");
-
+		listner=new GestioneLibreriaListener(this);
 		autore=new JRadioButton("Autore");
-		autore.addActionListener(new GestioneLibreriaListener(this));
+		autore.addActionListener(listner);
 		autore.setActionCommand(GestioneLibreriaListener.RADIO_AUTORE);
 		libro=new JRadioButton("Libro");
-		libro.addActionListener(new GestioneLibreriaListener(this));
+		libro.addActionListener(listner);
 		libro.setActionCommand(GestioneLibreriaListener.RADIO_LIBRO);
 		genere=new JRadioButton("Genere");
-		genere.addActionListener(new GestioneLibreriaListener(this));
+		genere.addActionListener(listner);
 		genere.setActionCommand(GestioneLibreriaListener.RADIO_GENERE);
 		casa=new JRadioButton("Casa Editrice");
-		casa.addActionListener(new GestioneLibreriaListener(this));
+		casa.addActionListener(listner);
 		casa.setActionCommand(GestioneLibreriaListener.RADIO_CASA);
 		group1=new ButtonGroup();
 		group1.add(libro);
 		group1.add(autore);
 		group1.add(genere);
 		group1.add(casa);
+		modifica.addActionListener(listner);
+		modifica.setActionCommand(GestioneLibreriaListener.ACTION_EDIT);
+		cancella.addActionListener(listner);
+		cancella.setActionCommand(GestioneLibreriaListener.ACTION_DELETE);
+		aggiungi.addActionListener(listner);
+		aggiungi.setActionCommand(GestioneLibreriaListener.ACTION_ADD);
 		setLibroEdit();
+		
 	}
 	public ButtonGroup getGroup(){
 		return group;
@@ -116,12 +124,6 @@ public class GestioneLibreria extends JPanel {
 		JPanel p2=new JPanel();
 		p2.setLayout(new GridLayout(0,3));
 		this.add(p2,BorderLayout.SOUTH);
-		modifica.addActionListener(new GestioneLibreriaListener(this));
-		modifica.setActionCommand(GestioneLibreriaListener.ACTION_EDIT);
-		cancella.addActionListener(new GestioneLibreriaListener(this));
-		cancella.setActionCommand(GestioneLibreriaListener.ACTION_DELETE);
-		aggiungi.addActionListener(new GestioneLibreriaListener(this));
-		aggiungi.setActionCommand(GestioneLibreriaListener.ACTION_ADD);
 		p2.add(modifica);
 		p2.add(cancella);
 		p2.add(aggiungi);
@@ -161,12 +163,6 @@ public class GestioneLibreria extends JPanel {
 		JPanel p2=new JPanel();
 		p2.setLayout(new GridLayout(0,3));
 		this.add(p2,BorderLayout.SOUTH);
-		modifica.addActionListener(new GestioneLibreriaListener(this));
-		modifica.setActionCommand(GestioneLibreriaListener.ACTION_EDIT);
-		cancella.addActionListener(new GestioneLibreriaListener(this));
-		cancella.setActionCommand(GestioneLibreriaListener.ACTION_DELETE);
-		aggiungi.addActionListener(new GestioneLibreriaListener(this));
-		aggiungi.setActionCommand(GestioneLibreriaListener.ACTION_ADD);
 		p2.add(modifica);
 		p2.add(cancella);
 		p2.add(aggiungi);
@@ -206,12 +202,6 @@ public class GestioneLibreria extends JPanel {
 		JPanel p2=new JPanel();
 		p2.setLayout(new GridLayout(0,3));
 		this.add(p2,BorderLayout.SOUTH);
-		modifica.addActionListener(new GestioneLibreriaListener(this));
-		modifica.setActionCommand(GestioneLibreriaListener.ACTION_EDIT);
-		cancella.addActionListener(new GestioneLibreriaListener(this));
-		cancella.setActionCommand(GestioneLibreriaListener.ACTION_DELETE);
-		aggiungi.addActionListener(new GestioneLibreriaListener(this));
-		aggiungi.setActionCommand(GestioneLibreriaListener.ACTION_ADD);
 		p2.add(modifica);
 		p2.add(cancella);
 		p2.add(aggiungi);
@@ -248,12 +238,6 @@ public class GestioneLibreria extends JPanel {
 		JPanel p2=new JPanel();
 		p2.setLayout(new GridLayout(0,3));
 		this.add(p2,BorderLayout.SOUTH);
-		modifica.addActionListener(new GestioneLibreriaListener(this));
-		modifica.setActionCommand(GestioneLibreriaListener.ACTION_EDIT);
-		cancella.addActionListener(new GestioneLibreriaListener(this));
-		cancella.setActionCommand(GestioneLibreriaListener.ACTION_DELETE);
-		aggiungi.addActionListener(new GestioneLibreriaListener(this));
-		aggiungi.setActionCommand(GestioneLibreriaListener.ACTION_ADD);
 		p2.add(modifica);
 		p2.add(cancella);
 		p2.add(aggiungi);

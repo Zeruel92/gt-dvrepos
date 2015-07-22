@@ -64,6 +64,6 @@ public class Libro {
 
 	}
 	public Libro(){
-
+		this.idlibro=-1;
 	}
 }

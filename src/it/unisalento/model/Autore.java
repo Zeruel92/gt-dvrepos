@@ -1,14 +1,21 @@
 package it.unisalento.model;
 
 public class Autore {
+	
 	private String nome;
 	private String cognome;
 	private int id;
+	
 	public Autore(String nome, String cognome, int id) {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.id = id;
 	}
+	
+	public Autore(){
+		this.id=-1;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
