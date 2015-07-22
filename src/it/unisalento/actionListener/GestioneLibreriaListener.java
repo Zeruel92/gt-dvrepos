@@ -2,8 +2,12 @@ package it.unisalento.actionListener;
 
 import it.unisalento.businesslogic.LibreriaManager;
 import it.unisalento.dao.Autori;
+import it.unisalento.dao.CaseEditrici;
+import it.unisalento.dao.Generi;
 import it.unisalento.dao.Libreria;
 import it.unisalento.model.Autore;
+import it.unisalento.model.CasaEditrice;
+import it.unisalento.model.Genere;
 import it.unisalento.model.Libro;
 import it.unisalento.view.GestioneLibreria;
 import it.unisalento.view.ModificaForm;
@@ -90,25 +94,35 @@ public class GestioneLibreriaListener implements ActionListener {
 
 			case 2:
 				if(command.equals(ACTION_EDIT)){
-					//TODO modifica genere
+					ButtonGroup bg=g.getGroup();
+					int id= Integer.parseInt(bg.getSelection().getActionCommand());
+					Genere g=Generi.getIstance().getGenere(id-1);
+					ModificaForm f=new ModificaForm(g);
+					f.setVisible(true);
 				}
 				else if(command.equals(ACTION_DELETE)){
 					//TODO elimina genere
 				}
 				else{
-					//TODO aggiungi genere
+					ModificaForm f=new ModificaForm(new Genere());
+					f.setVisible(true);
 				}
 				break;
 
 			case 3:
 				if(command.equals(ACTION_EDIT)){
-					//TODO modifica casaed
+					ButtonGroup bg=g.getGroup();
+					int id= Integer.parseInt(bg.getSelection().getActionCommand());
+					CasaEditrice c=CaseEditrici.getIstance().getCasa(id-1);
+					ModificaForm f=new ModificaForm(c);
+					f.setVisible(true);
 				}
 				else if(command.equals(ACTION_DELETE)){
 					//TODO elimina casaed
 				}
 				else{
-					//TODO aggiungi casaed
+					ModificaForm f=new ModificaForm(new CasaEditrice());
+					f.setVisible(true);
 				}
 				break;
 

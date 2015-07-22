@@ -49,7 +49,24 @@ public class ModificaForm extends JFrame{
 			adda();
 		}
 	}
-	
+	public ModificaForm(CasaEditrice c){
+		if(c.getId()!=-1){
+			this.c=c;
+			editc();
+		}
+		else{
+			addc();
+		}
+	}
+	public ModificaForm(Genere g){
+		if(g.getId()!=-1){
+			this.g=g;
+			editg();
+		}
+		else{
+			addg();
+		}
+	}
 	private void editl(){
 		this.setTitle("Modifica:"+this.l.getTitolo());
 		JPanel p=new JPanel();
@@ -160,6 +177,7 @@ public class ModificaForm extends JFrame{
 		pack();
 	}
 	private void adda(){
+		this.setTitle("Aggiungi nuovo autore");
 		JPanel p=new JPanel();
 		p.setLayout(new GridLayout(0,2));
 		this.getContentPane().add(p);
@@ -181,8 +199,94 @@ public class ModificaForm extends JFrame{
 		p.add(cancel);
 		pack();
 	}
+	private void editc(){
+		this.setTitle("Modifica della CasaEditrice: "+c.getNome());
+		JPanel p=new JPanel();
+		p.setLayout(new GridLayout(0,2));
+		this.getContentPane().add(p);
+		t0=new JTextField();
+		t0.setText(c.getNome());
+		JLabel l0=new JLabel("Nome");
+		JLabel l1=new JLabel("P.IVA");
+		t1=new JTextField();
+		t1.setText(c.getPiva());
+		p.add(l0);
+		p.add(t0);
+		p.add(l1);
+		p.add(t1);
+		confirm=new JButton("Applica");
+		confirm.setActionCommand(ModificaListener.ACTION_APPLY);
+		confirm.addActionListener(new ModificaListener(this));
+		cancel=new JButton("Annulla");
+		cancel.setActionCommand(ModificaListener.ACTION_CANCEL);
+		cancel.addActionListener(new ModificaListener(this));
+		p.add(confirm);
+		p.add(cancel);
+		pack();
+	}
+	private void addc(){
+		this.setTitle("Aggiungi nuova CasaEditrice");
+		JPanel p=new JPanel();
+		p.setLayout(new GridLayout(0,2));
+		this.getContentPane().add(p);
+		t0=new JTextField();
+		JLabel l0=new JLabel("Nome");
+		JLabel l1=new JLabel("P.IVA");
+		t1=new JTextField();
+		p.add(l0);
+		p.add(t0);
+		p.add(l1);
+		p.add(t1);
+		confirm=new JButton("Applica");
+		confirm.setActionCommand(ModificaListener.ACTION_APPLY);
+		confirm.addActionListener(new ModificaListener(this));
+		cancel=new JButton("Annulla");
+		cancel.setActionCommand(ModificaListener.ACTION_CANCEL);
+		cancel.addActionListener(new ModificaListener(this));
+		p.add(confirm);
+		p.add(cancel);
+		pack();
+	}
+	private void editg(){
+		this.setTitle("Modifica del Genere: "+g.getNome());
+		JPanel p=new JPanel();
+		p.setLayout(new GridLayout(0,2));
+		this.getContentPane().add(p);
+		t0=new JTextField();
+		t0.setText(g.getNome());
+		JLabel l0=new JLabel("Nome");
+		p.add(l0);
+		p.add(t0);
+		confirm=new JButton("Applica");
+		confirm.setActionCommand(ModificaListener.ACTION_APPLY);
+		confirm.addActionListener(new ModificaListener(this));
+		cancel=new JButton("Annulla");
+		cancel.setActionCommand(ModificaListener.ACTION_CANCEL);
+		cancel.addActionListener(new ModificaListener(this));
+		p.add(confirm);
+		p.add(cancel);
+		pack();
+	}
+	private void addg(){
+		this.setTitle("Aggiungi nuovo Genere");
+		JPanel p=new JPanel();
+		p.setLayout(new GridLayout(0,2));
+		this.getContentPane().add(p);
+		t0=new JTextField();
+		JLabel l0=new JLabel("Nome");
+		p.add(l0);
+		p.add(t0);
+		confirm=new JButton("Applica");
+		confirm.setActionCommand(ModificaListener.ACTION_APPLY);
+		confirm.addActionListener(new ModificaListener(this));
+		cancel=new JButton("Annulla");
+		cancel.setActionCommand(ModificaListener.ACTION_CANCEL);
+		cancel.addActionListener(new ModificaListener(this));
+		p.add(confirm);
+		p.add(cancel);
+		pack();
+	}
 }
-//TODO form per generi e caseeditrici
 /* Form di Modifica, permette l'aggiunta e la modifica dei record della Libreria
  * l'attributo type indica il tipo di operazione da effettuare.
  * Se viene invocato il costrutture con attributo Libro, le operazioni verranno effettuate sulla 
