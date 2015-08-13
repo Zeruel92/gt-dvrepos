@@ -88,3 +88,4 @@ public class Catalogo extends JPanel {
 		return selezionati;
 	}
 }
+//TODO Ricerca di elementi

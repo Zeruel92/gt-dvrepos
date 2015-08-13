@@ -13,39 +13,13 @@ public class LibreriaManager {
 	private Autori au;
 	private Generi gen;
 	private CaseEditrici caseed;
-	private ModificaForm f;
 	
-	public LibreriaManager(ModificaForm f){
-		this.f=f;
-		lib=Libreria.getIstance();
-		au=Autori.getIstance();
-		gen=Generi.getIstance();
-	}
 	public LibreriaManager(){
 		lib=Libreria.getIstance();
 		au=Autori.getIstance();
 		gen=Generi.getIstance();
 	}
-	public void edit(int index,int type){
-		switch(type){
-		case 0:{
-			
-			break;
-		}
-		case 1:{
-			break;
-		}
-		case 2:{
-			break;
-		}
-		case 3:{
-			break;
-		}
-		default: {
-			break;
-		}
-		}
-	}
+	
 }
 
 //TODO implementare metodi

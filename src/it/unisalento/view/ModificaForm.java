@@ -23,7 +23,7 @@ public class ModificaForm extends JFrame{
 	
 	private JButton confirm;
 	private JButton cancel;
-	private JTextField t0,t1,t2,t3,t4,t5;
+	private JTextField t0,t1,t2;
 	private JLabel l0,l1,l2,l3,l4,l5;
 	private Libro l;
 	private Autore a;
@@ -67,6 +67,14 @@ public class ModificaForm extends JFrame{
 			addg();
 		}
 	}
+	/*Campi usati per il libro:
+	 * t0:titolo
+	 * combo0 autore
+	 * combo1 casaed
+	 * combo2 genere
+	 * t1: costo
+	 * t2 giacenza
+	 */
 	private void editl(){
 		this.setTitle("Modifica:"+this.l.getTitolo());
 		JPanel p=new JPanel();
@@ -103,7 +111,7 @@ public class ModificaForm extends JFrame{
 		p.add(l5);
 		p.add(t2);
 		confirm=new JButton("Applica");
-		confirm.setActionCommand(ModificaListener.ACTION_APPLY);
+		confirm.setActionCommand(ModificaListener.ACTION_APPLY_EDITL);
 		confirm.addActionListener(new ModificaListener(this));
 		cancel=new JButton("Annulla");
 		cancel.setActionCommand(ModificaListener.ACTION_CANCEL);
@@ -142,7 +150,7 @@ public class ModificaForm extends JFrame{
 		p.add(l5);
 		p.add(t2);
 		confirm=new JButton("Applica");
-		confirm.setActionCommand(ModificaListener.ACTION_APPLY);
+		confirm.setActionCommand(ModificaListener.ACTION_APPLY_ADDL);
 		confirm.addActionListener(new ModificaListener(this));
 		cancel=new JButton("Annulla");
 		cancel.setActionCommand(ModificaListener.ACTION_CANCEL);
@@ -167,7 +175,7 @@ public class ModificaForm extends JFrame{
 		p.add(l1);
 		p.add(t1);
 		confirm=new JButton("Applica");
-		confirm.setActionCommand(ModificaListener.ACTION_APPLY);
+		confirm.setActionCommand(ModificaListener.ACTION_APPLY_EDITA);
 		confirm.addActionListener(new ModificaListener(this));
 		cancel=new JButton("Annulla");
 		cancel.setActionCommand(ModificaListener.ACTION_CANCEL);
@@ -190,7 +198,7 @@ public class ModificaForm extends JFrame{
 		p.add(l1);
 		p.add(t1);
 		confirm=new JButton("Applica");
-		confirm.setActionCommand(ModificaListener.ACTION_APPLY);
+		confirm.setActionCommand(ModificaListener.ACTION_APPLY_ADDAU);
 		confirm.addActionListener(new ModificaListener(this));
 		cancel=new JButton("Annulla");
 		cancel.setActionCommand(ModificaListener.ACTION_CANCEL);
@@ -215,7 +223,7 @@ public class ModificaForm extends JFrame{
 		p.add(l1);
 		p.add(t1);
 		confirm=new JButton("Applica");
-		confirm.setActionCommand(ModificaListener.ACTION_APPLY);
+		confirm.setActionCommand(ModificaListener.ACTION_APPLY_EDITCAS);
 		confirm.addActionListener(new ModificaListener(this));
 		cancel=new JButton("Annulla");
 		cancel.setActionCommand(ModificaListener.ACTION_CANCEL);
@@ -238,7 +246,7 @@ public class ModificaForm extends JFrame{
 		p.add(l1);
 		p.add(t1);
 		confirm=new JButton("Applica");
-		confirm.setActionCommand(ModificaListener.ACTION_APPLY);
+		confirm.setActionCommand(ModificaListener.ACTION_APPLY_ADDCAS);
 		confirm.addActionListener(new ModificaListener(this));
 		cancel=new JButton("Annulla");
 		cancel.setActionCommand(ModificaListener.ACTION_CANCEL);
@@ -258,7 +266,7 @@ public class ModificaForm extends JFrame{
 		p.add(l0);
 		p.add(t0);
 		confirm=new JButton("Applica");
-		confirm.setActionCommand(ModificaListener.ACTION_APPLY);
+		confirm.setActionCommand(ModificaListener.ACTION_APPLY_EDITGEN);
 		confirm.addActionListener(new ModificaListener(this));
 		cancel=new JButton("Annulla");
 		cancel.setActionCommand(ModificaListener.ACTION_CANCEL);
@@ -277,7 +285,7 @@ public class ModificaForm extends JFrame{
 		p.add(l0);
 		p.add(t0);
 		confirm=new JButton("Applica");
-		confirm.setActionCommand(ModificaListener.ACTION_APPLY);
+		confirm.setActionCommand(ModificaListener.ACTION_APPLY_ADDGEN);
 		confirm.addActionListener(new ModificaListener(this));
 		cancel=new JButton("Annulla");
 		cancel.setActionCommand(ModificaListener.ACTION_CANCEL);
@@ -285,6 +293,23 @@ public class ModificaForm extends JFrame{
 		p.add(confirm);
 		p.add(cancel);
 		pack();
+	}
+	public Libro getLibro(){
+		Libro l=new Libro();
+		String titolo=t0.getText();
+		int autore=combo0.getSelectedIndex()-1;
+		int casaed=combo1.getSelectedIndex()-1;
+		int genere=combo2.getSelectedIndex()-1;
+		int giac=Integer.parseInt(t2.getText());
+		int costo=Integer.parseInt(t1.getText());
+		l.setAutore(autore);
+		l.setTitolo(titolo);
+		l.setCosto(costo);
+		l.setCasaedi(casaed);
+		l.setGenere(genere);
+		l.setGiacenza(giac);
+		
+		return l;
 	}
 }
 /* Form di Modifica, permette l'aggiunta e la modifica dei record della Libreria

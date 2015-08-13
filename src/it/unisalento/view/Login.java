@@ -52,7 +52,7 @@ public class Login extends JFrame {
 		this.setVisible(true);
 		this.setResizable(false);
 		this.pack();
-		
+		//TODO ELIMINARE DEBUGSETTINGS
 		//DEBUG SETTINGS
 		this.uname.setText("prova@provamitutto.it");
 		this.pass.setText("prova");
