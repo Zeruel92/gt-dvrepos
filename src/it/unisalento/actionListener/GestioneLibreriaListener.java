@@ -104,12 +104,16 @@ public class GestioneLibreriaListener implements ActionListener {
 				if(command.equals(ACTION_EDIT)){
 					ButtonGroup bg=g.getGroup();
 					int id= Integer.parseInt(bg.getSelection().getActionCommand());
-					Genere g=Generi.getIstance().getGenere(id-1);
+					Genere g=Generi.getIstance().getGenereID(id);
 					ModificaForm f=new ModificaForm(g);
 					f.setVisible(true);
 				}
 				else if(command.equals(ACTION_DELETE)){
-					//TODO elimina genere
+					ButtonGroup bg=g.getGroup();
+					int id= Integer.parseInt(bg.getSelection().getActionCommand());
+					Genere g=Generi.getIstance().getGenereID(id);
+					LibreriaManager libman=new LibreriaManager();
+					libman.deleteGenere(g);
 				}
 				else{
 					ModificaForm f=new ModificaForm(new Genere());

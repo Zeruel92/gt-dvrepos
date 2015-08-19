@@ -1,5 +1,6 @@
 package it.unisalento.dao;
 
+import it.unisalento.model.CasaEditrice;
 import it.unisalento.model.Genere;
 import it.unisalento.dbinterface.DBManager;
 
@@ -60,5 +61,15 @@ public class Generi {
 			array[i]=lista.elementAt(i).getNome();
 		}
 		return array;
+	}
+
+	public Genere getGenereID(int id) {
+		Genere gen=new Genere();
+		for(int i=0;i<lista.size();i++){
+			if(lista.elementAt(i).getId()==id){
+				gen=lista.elementAt(i);
+			}
+		}
+		return gen;
 	}
 }
