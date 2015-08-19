@@ -58,6 +58,20 @@ public class LibreriaManager {
 		}
 		else JOptionPane.showMessageDialog(null, "Modifica non riuscita");
 	}
+	public void deleteLibro(Libro l) {
+		String titolo="Eliminare "+l.getTitolo()+"?";
+		String messaggio="Vuoi eliminare il libro dalla libreria?";
+		int risposta=JOptionPane.showConfirmDialog(null,messaggio, titolo, JOptionPane.YES_NO_OPTION);
+		if(risposta==JOptionPane.YES_OPTION){
+			String query="DELETE from LIBRO where idLibro="+l.getIdlibro();
+			DBManager db=DBManager.getIstance();
+			int rs=db.inserisciNuovo(query);
+			if(rs!=-1){
+				JOptionPane.showMessageDialog(null, "Cancellazione riuscita");
+			}
+			else JOptionPane.showMessageDialog(null, "Cancellazione non riuscita");
+		}
+	}
 }
 
 //TODO implementare metodi

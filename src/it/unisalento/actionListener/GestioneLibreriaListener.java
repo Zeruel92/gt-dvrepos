@@ -68,7 +68,11 @@ public class GestioneLibreriaListener implements ActionListener {
 					f.setVisible(true);
 				}
 				else if(command.equals(ACTION_DELETE)){
-					//TODO eliminazione di un libro
+					ButtonGroup bg=g.getGroup();
+					int id= Integer.parseInt(bg.getSelection().getActionCommand());
+					Libro l=Libreria.getIstance().getLibroID(id);
+					LibreriaManager libman=new LibreriaManager();
+					libman.deleteLibro(l);
 				}
 				else{
 					ModificaForm f=new ModificaForm(new Libro());
