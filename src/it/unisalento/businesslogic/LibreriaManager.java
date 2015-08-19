@@ -118,7 +118,15 @@ public class LibreriaManager {
 		}
 	}
 	public void addAutore(Autore a) {
-		// TODO aggiungi autore
+		String nome=a.getNome();
+		String cognome=a.getCognome();
+		String query="Insert Into Autore values(null,\""+nome+"\",\""+cognome+"\");";
+		DBManager db=DBManager.getIstance();
+		int rs=db.inserisciNuovo(query);
+		if(rs!=-1){
+			JOptionPane.showMessageDialog(null, "Inserimento riuscito");
+		}
+		else JOptionPane.showMessageDialog(null, "Inserimento non riuscito");
 	}
 	public void editAutore(Autore a){
 		//TODO modifica Autore
