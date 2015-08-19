@@ -63,7 +63,7 @@ public class GestioneLibreriaListener implements ActionListener {
 				if(command.equals(ACTION_EDIT)){
 					ButtonGroup bg=g.getGroup();
 					int id= Integer.parseInt(bg.getSelection().getActionCommand());
-					Libro l=Libreria.getIstance().getLibro(id-1);
+					Libro l=Libreria.getIstance().getLibroID(id);
 					ModificaForm f=new ModificaForm(l);
 					f.setVisible(true);
 				}

@@ -1,6 +1,7 @@
 package it.unisalento.actionListener;
 
 import it.unisalento.businesslogic.LibreriaManager;
+import it.unisalento.model.Libro;
 import it.unisalento.view.ModificaForm;
 
 import java.awt.event.ActionEvent;
@@ -34,12 +35,14 @@ public class ModificaListener implements ActionListener {
 			this.f=null;
 		}
 		else if (cmd.equals(ACTION_APPLY_ADDL)){
-			
-			libman.addLibro();
-			System.out.println("Aggiungi Libro");
-		}
+			Libro l=f.getLibro();
+			libman.addLibro(l);
+			this.f.setVisible(false);
+			}
 		else if(cmd.equals(ACTION_APPLY_EDITL)){
-			System.out.println("Modifica Libro");
+			Libro l=f.getLibro();
+			libman.editLibro(l);
+			this.f.setVisible(false);
 		}
 		else if (cmd.equals(ACTION_APPLY_ADDAU)){
 			System.out.println("Aggiugi auore");

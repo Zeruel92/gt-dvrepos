@@ -62,5 +62,4 @@ public class UserInterface extends JFrame {
 		//LINEA DI DEBUG
 		schede.setSelectedIndex(2);
 	}
-
 }

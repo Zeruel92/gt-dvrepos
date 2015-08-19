@@ -32,8 +32,8 @@ public class ModificaForm extends JFrame{
 	private JComboBox combo0,combo1,combo2;
 	
 	public ModificaForm(Libro l){
+		this.l=l;
 		if(l.getIdlibro()!=-1){
-			this.l=l;
 			editl();
 		}
 		else{
@@ -295,21 +295,13 @@ public class ModificaForm extends JFrame{
 		pack();
 	}
 	public Libro getLibro(){
-		Libro l=new Libro();
-		String titolo=t0.getText();
-		int autore=combo0.getSelectedIndex()-1;
-		int casaed=combo1.getSelectedIndex()-1;
-		int genere=combo2.getSelectedIndex()-1;
-		int giac=Integer.parseInt(t2.getText());
-		int costo=Integer.parseInt(t1.getText());
-		l.setAutore(autore);
-		l.setTitolo(titolo);
-		l.setCosto(costo);
-		l.setCasaedi(casaed);
-		l.setGenere(genere);
-		l.setGiacenza(giac);
-		
-		return l;
+		this.l.setTitolo(t0.getText());
+		this.l.setAutore(combo0.getSelectedIndex()+1);
+		this.l.setGenere(combo2.getSelectedIndex()+1);
+		this.l.setCasaedi(combo1.getSelectedIndex()+1);
+		this.l.setCosto(Float.parseFloat(t1.getText()));
+		this.l.setGiacenza(Integer.parseInt(t2.getText()));
+		return this.l;
 	}
 }
 /* Form di Modifica, permette l'aggiunta e la modifica dei record della Libreria
