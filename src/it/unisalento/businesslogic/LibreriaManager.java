@@ -10,6 +10,7 @@ import it.unisalento.dao.Generi;
 import it.unisalento.dao.Libreria;
 import it.unisalento.dbinterface.DBManager;
 import it.unisalento.model.Autore;
+import it.unisalento.model.CasaEditrice;
 import it.unisalento.model.Libro;
 import it.unisalento.view.ModificaForm;
 import it.unisalento.view.UserInterface;
@@ -78,7 +79,21 @@ public class LibreriaManager {
 		String messaggio="Vuoi eliminare l'autore dalla lista autori?";
 		int risposta=JOptionPane.showConfirmDialog(null,messaggio, titolo, JOptionPane.YES_NO_OPTION);
 		if(risposta==JOptionPane.YES_OPTION){
-			String query="DELETE from Autore where idLibro="+a.getId();
+			String query="DELETE from Autore where idAutore="+a.getId();
+			DBManager db=DBManager.getIstance();
+			int rs=db.inserisciNuovo(query);
+			if(rs!=-1){
+				JOptionPane.showMessageDialog(null, "Cancellazione riuscita");
+			}
+			else JOptionPane.showMessageDialog(null, "Cancellazione non riuscita");
+		}
+	}
+	public void deleteCasa(CasaEditrice c) {
+		String titolo="Eliminare"+c.getNome()+"?";
+		String messaggio="Vuoi eliminare la casa editrice dalla lista?";
+		int risposta=JOptionPane.showConfirmDialog(null,messaggio, titolo, JOptionPane.YES_NO_OPTION);
+		if(risposta==JOptionPane.YES_OPTION){
+			String query="DELETE from CasaEditrice where idCasaEd="+c.getId();
 			DBManager db=DBManager.getIstance();
 			int rs=db.inserisciNuovo(query);
 			if(rs!=-1){

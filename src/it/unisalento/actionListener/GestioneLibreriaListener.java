@@ -121,12 +121,16 @@ public class GestioneLibreriaListener implements ActionListener {
 				if(command.equals(ACTION_EDIT)){
 					ButtonGroup bg=g.getGroup();
 					int id= Integer.parseInt(bg.getSelection().getActionCommand());
-					CasaEditrice c=CaseEditrici.getIstance().getCasa(id-1);
+					CasaEditrice c=CaseEditrici.getIstance().getCasaID(id);
 					ModificaForm f=new ModificaForm(c);
 					f.setVisible(true);
 				}
 				else if(command.equals(ACTION_DELETE)){
-					//TODO elimina casaed
+					ButtonGroup bg=g.getGroup();
+					int id= Integer.parseInt(bg.getSelection().getActionCommand());
+					CasaEditrice c=CaseEditrici.getIstance().getCasaID(id);
+					LibreriaManager libman=new LibreriaManager();
+					libman.deleteCasa(c);
 				}
 				else{
 					ModificaForm f=new ModificaForm(new CasaEditrice());

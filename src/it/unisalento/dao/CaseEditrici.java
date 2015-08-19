@@ -42,6 +42,15 @@ public class CaseEditrici {
 	public CasaEditrice getCasa(int index){
 		return lista.elementAt(index);
 	}
+	public CasaEditrice getCasaID(int id){
+		CasaEditrice casa=new CasaEditrice();
+		for(int i=0;i<lista.size();i++){
+			if(lista.elementAt(i).getId()==id){
+				casa=lista.elementAt(i);
+			}
+		}
+		return casa;
+	}
 	public void update(){
 		lista.removeAllElements();
 		ResultSet rs=db.eseguiQuery(query);
