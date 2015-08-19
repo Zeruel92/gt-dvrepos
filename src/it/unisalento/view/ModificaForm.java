@@ -159,6 +159,11 @@ public class ModificaForm extends JFrame{
 		p.add(cancel);
 		pack();
 	}
+	/*
+	 * Campi usati per l'autore
+	 * t0->Nome
+	 * t1->Cognome
+	 */
 	private void edita(){
 		this.setTitle("Modifica Autore: "+a.getNome()+" "+a.getCognome());
 		JPanel p=new JPanel();
@@ -207,6 +212,11 @@ public class ModificaForm extends JFrame{
 		p.add(cancel);
 		pack();
 	}
+	/*
+	 * Campi usati dalla casa
+	 * t0->nome
+	 * t1->PIVA
+	 */
 	private void editc(){
 		this.setTitle("Modifica della CasaEditrice: "+c.getNome());
 		JPanel p=new JPanel();
@@ -255,6 +265,10 @@ public class ModificaForm extends JFrame{
 		p.add(cancel);
 		pack();
 	}
+	/*
+	 * campi usati dal genere
+	 * t0->nome
+	 */
 	private void editg(){
 		this.setTitle("Modifica del Genere: "+g.getNome());
 		JPanel p=new JPanel();
@@ -302,6 +316,20 @@ public class ModificaForm extends JFrame{
 		this.l.setCosto(Float.parseFloat(t1.getText()));
 		this.l.setGiacenza(Integer.parseInt(t2.getText()));
 		return this.l;
+	}
+	public Autore getAutore() {
+		this.a.setNome(t0.getText());
+		this.a.setCognome(t1.getText());
+		return this.a;
+	}
+	public CasaEditrice getCasa() {
+		this.c.setNome(t0.getText());
+		this.c.setPiva(t0.getText());
+		return this.c;
+	}
+	public Genere getGenere() {
+		this.g.setNome(t0.getText());
+		return this.g;
 	}
 }
 /* Form di Modifica, permette l'aggiunta e la modifica dei record della Libreria

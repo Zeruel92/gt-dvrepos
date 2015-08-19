@@ -1,6 +1,9 @@
 package it.unisalento.actionListener;
 
 import it.unisalento.businesslogic.LibreriaManager;
+import it.unisalento.model.Autore;
+import it.unisalento.model.CasaEditrice;
+import it.unisalento.model.Genere;
 import it.unisalento.model.Libro;
 import it.unisalento.view.ModificaForm;
 
@@ -28,7 +31,6 @@ public class ModificaListener implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Implementare Controlli Finestra di Modifica
 		String cmd=arg0.getActionCommand();
 		if(cmd.equals(ACTION_CANCEL)){
 			this.f.setVisible(false);
@@ -45,22 +47,34 @@ public class ModificaListener implements ActionListener {
 			this.f.setVisible(false);
 		}
 		else if (cmd.equals(ACTION_APPLY_ADDAU)){
-			System.out.println("Aggiugi auore");
+			Autore a=f.getAutore();
+			libman.addAutore(a);
+			this.f.setVisible(false);
 		}
 		else if (cmd.equals(ACTION_APPLY_EDITA)){
-			System.out.println("Modifica Autore");
+			Autore a =f.getAutore();
+			libman.editAutore(a);
+			this.f.setVisible(false);
 		}
 		else if (cmd.equals(ACTION_APPLY_ADDCAS)){
-			System.out.println("aggiungi Casa editrice");
+			CasaEditrice c=f.getCasa();
+			libman.addCasa(c);
+			this.f.setVisible(false);
 		}
 		else if (cmd.equals(ACTION_APPLY_EDITCAS)){
-			System.out.println("Modifica casa editrice");
+			CasaEditrice c=f.getCasa();
+			libman.editCasa(c);
+			this.f.setVisible(false);
 		}
 		else if (cmd.equals(ACTION_APPLY_ADDGEN)){
-			System.out.println("Aggiungi genere");
+			Genere g=f.getGenere();
+			libman.addGenere(g);
+			this.f.setVisible(false);
 		}
 		else {
-			System.out.println("Modifica genere");
+			Genere g=f.getGenere();
+			libman.editGenere(g);
+			this.f.setVisible(false);
 			}
 	}
 }

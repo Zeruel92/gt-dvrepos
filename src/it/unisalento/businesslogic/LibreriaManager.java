@@ -117,9 +117,27 @@ public class LibreriaManager {
 			else JOptionPane.showMessageDialog(null, "Cancellazione non riuscita");
 		}
 	}
+	public void addAutore(Autore a) {
+		// TODO aggiungi autore
+	}
+	public void editAutore(Autore a){
+		//TODO modifica Autore
+	}
+	public void addGenere(Genere g){
+		//TODO aggiungi genere
+	}
+	public void editGenere(Genere g){
+		//TODO modifica genere
+	}
+	public void addCasa(CasaEditrice c){
+		//TODO aggiungi casa
+	}
+	public void editCasa(CasaEditrice c){
+		//TODO modifica casa
+	}
 }
 
-//TODO implementare metodi
+
 /*Classe che fornisce i metodi necessari all'aggiunta,
  *  rimozione modifica di libri,autori,generi e caseeditrici
  */
