@@ -129,19 +129,60 @@ public class LibreriaManager {
 		else JOptionPane.showMessageDialog(null, "Inserimento non riuscito");
 	}
 	public void editAutore(Autore a){
-		//TODO modifica Autore
+		String nome=a.getNome();
+		String cognome=a.getCognome();
+		int id=a.getId();
+		String query="UPDATE Autore SET nome=\""+nome+"\",cognome=\""+cognome+"\" where idAutore="+id;
+		DBManager db=DBManager.getIstance();
+		int rs=db.inserisciNuovo(query);
+		if(rs!=-1){
+			JOptionPane.showMessageDialog(null, "Modifica riuscita");
+		}
+		else JOptionPane.showMessageDialog(null, "Modifica non riuscita");
 	}
 	public void addGenere(Genere g){
-		//TODO aggiungi genere
+		String nome=g.getNome();
+		String query="Insert Into Genere values(null,\""+nome+"\");";
+		DBManager db=DBManager.getIstance();
+		int rs=db.inserisciNuovo(query);
+		if(rs!=-1){
+			JOptionPane.showMessageDialog(null, "Inserimento riuscito");
+		}
+		else JOptionPane.showMessageDialog(null, "Inserimento non riuscito");
 	}
 	public void editGenere(Genere g){
-		//TODO modifica genere
+		String nome=g.getNome();
+		int id=g.getId();
+		String query="UPDATE Genere SET nome=\""+nome+"\" where idGenere="+id;
+		DBManager db=DBManager.getIstance();
+		int rs=db.inserisciNuovo(query);
+		if(rs!=-1){
+			JOptionPane.showMessageDialog(null, "Modifica riuscita");
+		}
+		else JOptionPane.showMessageDialog(null, "Modifica non riuscita");
 	}
 	public void addCasa(CasaEditrice c){
-		//TODO aggiungi casa
+		String nome=c.getNome();
+		String PIVA=c.getPiva();
+		String query="Insert Into CasaEditrice values(null,\""+nome+"\",\""+PIVA+"\");";
+		DBManager db=DBManager.getIstance();
+		int rs=db.inserisciNuovo(query);
+		if(rs!=-1){
+			JOptionPane.showMessageDialog(null, "Inserimento riuscito");
+		}
+		else JOptionPane.showMessageDialog(null, "Inserimento non riuscito");
 	}
 	public void editCasa(CasaEditrice c){
-		//TODO modifica casa
+		String nome=c.getNome();
+		int id=c.getId();
+		String PIVA=c.getPiva();
+		String query="UPDATE CasaEditrice SET nome=\""+nome+"\",PIVA=\""+PIVA+"\" where idCasaEd="+id;
+		DBManager db=DBManager.getIstance();
+		int rs=db.inserisciNuovo(query);
+		if(rs!=-1){
+			JOptionPane.showMessageDialog(null, "Modifica riuscita");
+		}
+		else JOptionPane.showMessageDialog(null, "Modifica non riuscita");
 	}
 }
 

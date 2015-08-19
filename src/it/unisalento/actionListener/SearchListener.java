@@ -22,8 +22,8 @@ public class SearchListener implements ActionListener{
 		{
 			
 			//Research r=new Research();
-			tipo=s.getTipo();
-			stringa=s.getStringa();
+			//tipo=s.getTipo();
+			//stringa=s.getStringa();
 			
 			System.out.println(tipo);
 			System.out.println(stringa);
