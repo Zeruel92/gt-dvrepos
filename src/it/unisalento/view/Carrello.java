@@ -69,7 +69,7 @@ public class Carrello extends JPanel implements Runnable{
 		for (int i=0;i<chart.getDim();i++){
 			titolo=new JLabel(chart.getItem(i).getTitolo());
 			int idautore=chart.getItem(i).getAutore();
-			Autore a=Autori.getIstance().getAutore(idautore);
+			Autore a=Autori.getIstance().getAutoreID(idautore);
 			autore=new JLabel(a.getNome()+" "+a.getCognome());
 			int idcasa=chart.getItem(i).getCasaedi();
 			CasaEditrice e=CaseEditrici.getIstance().getCasa(idcasa);

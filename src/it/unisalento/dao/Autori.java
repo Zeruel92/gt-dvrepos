@@ -37,6 +37,15 @@ public class Autori {
 	public Autore getAutore(int index){
 		return lista.elementAt(index);
 	}
+	public Autore getAutoreID(int id){
+		Autore a=new Autore();
+		for (int i=0; i <lista.size();i++){
+			if(lista.elementAt(i).getId()==id){
+				a=lista.elementAt(i);
+			}
+		}
+		return a;
+	}
 	public int getDim(){
 		return lista.size();
 	}
