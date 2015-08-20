@@ -41,8 +41,8 @@ public class ModificaForm extends JFrame{
 		}
 	}
 	public ModificaForm(Autore a){
+		this.a=a;
 		if(a.getId()!=-1){
-			this.a=a;
 			edita();
 		}
 		else{
@@ -50,8 +50,8 @@ public class ModificaForm extends JFrame{
 		}
 	}
 	public ModificaForm(CasaEditrice c){
-		if(c.getId()!=-1){
-			this.c=c;
+		this.c=c;
+		if(c.getId()!=-1){	
 			editc();
 		}
 		else{
@@ -59,8 +59,8 @@ public class ModificaForm extends JFrame{
 		}
 	}
 	public ModificaForm(Genere g){
+		this.g=g;
 		if(g.getId()!=-1){
-			this.g=g;
 			editg();
 		}
 		else{
