@@ -38,7 +38,9 @@ public class SForm extends JFrame
 		group.add(autore);
 		group.add(genere);
 		
-		JTextField sotto=new JTextField();
+		/*JTextField*/ sotto=new JTextField(); //Hai dichiarato una variabile già esistente
+		//quindi il compilatore ha creato una nuova textfield è quella globale è rimasta nn istanziata
+		
 		this.add(sotto, BorderLayout.CENTER);
 		
 		JButton cerca=new JButton("Cerca");
@@ -46,7 +48,7 @@ public class SForm extends JFrame
 		cerca.addActionListener(new SearchListener(this));
 		this.add(cerca, BorderLayout.SOUTH);
 		
-		stringa=sotto.getText();
+		//stringa=sotto.getText(); ti da una stringa vuota usata qua in quanto l'oggetto è appena costruito
 		
 		setVisible(true);
 		pack();
@@ -56,7 +58,8 @@ public class SForm extends JFrame
 		return tipo;
 	}
 	public String getStringa(){
-		return stringa;
+		return sotto.getText();
 	}
+	
 	
 }
