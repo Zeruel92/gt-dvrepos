@@ -64,6 +64,32 @@ public class Libreria {
 			e.printStackTrace();
 		}
 	}
+	
+	public void update(String query){
+		libreria.removeAllElements();
+		try{
+			ResultSet rs=db.getIstance().eseguiQuery(query);
+
+			while (rs.next())
+			{
+				int idlibro= Integer.parseInt(rs.getString("idLibro"));
+				String titolo=rs.getString("titolo");
+				int autore=Integer.parseInt(rs.getString("idAutore"));
+			    int casaedi=Integer.parseInt(rs.getString("casaed"));
+				float costo=Float.parseFloat(rs.getString("costo"));
+				int giacenza=Integer.parseInt(rs.getString("giacenza"));
+				int genere=Integer.parseInt(rs.getString("idGenere"));
+				Libro l=new Libro(idlibro, titolo, autore, casaedi, costo, giacenza, genere);
+				libreria.addElement(l);
+
+			}
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
+	
+	
 	private Libreria()
 	{
 		try{

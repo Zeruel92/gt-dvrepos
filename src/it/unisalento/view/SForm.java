@@ -3,6 +3,8 @@ package it.unisalento.view;
 import it.unisalento.actionListener.SearchListener;
 
 import java.awt.BorderLayout;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -26,8 +28,11 @@ public class SForm extends JFrame
 		this.setLayout(new BorderLayout());
 		JPanel sopra=new JPanel();
 		JRadioButton titolo=new JRadioButton("Titolo");
+		titolo.addItemListener(new RadioListener("Titolo"));
 		JRadioButton autore=new JRadioButton("Autore");
+		autore.addItemListener(new RadioListener("Autore"));
 		JRadioButton genere=new JRadioButton("Genere");
+		genere.addItemListener(new RadioListener("Genere"));
 		sopra.add(titolo);
 		sopra.add(autore);
 		sopra.add(genere);
@@ -38,17 +43,13 @@ public class SForm extends JFrame
 		group.add(autore);
 		group.add(genere);
 		
-		/*JTextField*/ sotto=new JTextField(); //Hai dichiarato una variabile già esistente
-		//quindi il compilatore ha creato una nuova textfield è quella globale è rimasta nn istanziata
-		
+		sotto=new JTextField();
 		this.add(sotto, BorderLayout.CENTER);
 		
 		JButton cerca=new JButton("Cerca");
 		cerca.setActionCommand("search");
 		cerca.addActionListener(new SearchListener(this));
 		this.add(cerca, BorderLayout.SOUTH);
-		
-		//stringa=sotto.getText(); ti da una stringa vuota usata qua in quanto l'oggetto è appena costruito
 		
 		setVisible(true);
 		pack();
@@ -61,5 +62,19 @@ public class SForm extends JFrame
 		return sotto.getText();
 	}
 	
+	class RadioListener implements ItemListener{
+		String type;
+		private RadioListener(String text)
+		{
+			type=text;
+		}
+
+		@Override
+		public void itemStateChanged(ItemEvent arg0) {
+			// TODO Auto-generated method stub
+			tipo=type;
+		}
+		
+	}
 	
 }
