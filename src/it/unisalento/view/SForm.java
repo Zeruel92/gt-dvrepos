@@ -19,6 +19,8 @@ public class SForm extends JFrame
 	public JPanel sopra;
 	public JTextField sotto;
 	public JButton cerca;
+	private Thread t;
+	public String tipo,stringa;
 	public SForm()
 	{
 		this.setLayout(new BorderLayout());
@@ -40,12 +42,21 @@ public class SForm extends JFrame
 		this.add(sotto, BorderLayout.CENTER);
 		
 		JButton cerca=new JButton("Cerca");
-		cerca.setActionCommand("cerca");
+		cerca.setActionCommand("search");
 		cerca.addActionListener(new SearchListener(this));
 		this.add(cerca, BorderLayout.SOUTH);
+		
+		stringa=sotto.getText();
 		
 		setVisible(true);
 		pack();
 		
 	}
+	public String getTipo() {
+		return tipo;
+	}
+	public String getStringa(){
+		return stringa;
+	}
+	
 }

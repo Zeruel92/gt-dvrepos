@@ -14,16 +14,19 @@ public class SearchListener implements ActionListener{
 		this.s=s;
 	}
 	
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+
+		// TODO Auto-generated method stub
 		if (e.getActionCommand().equals("search"))
 		{
-			
+
 			//Research r=new Research();
-			//tipo=s.getTipo();
-			//stringa=s.getStringa();
+
+			tipo=s.getTipo();
+			stringa=s.getStringa();
 			
 			System.out.println(tipo);
 			System.out.println(stringa);
