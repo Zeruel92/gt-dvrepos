@@ -20,7 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-public class GestioneLibreria extends JPanel {
+public class GestioneLibreria extends JPanel implements Runnable{
 
 	private Libreria l;
 	private Vector<JRadioButton> items;
@@ -31,6 +31,7 @@ public class GestioneLibreria extends JPanel {
 	private ButtonGroup group1;
 	private JRadioButton autore,libro,genere,casa;
 	private GestioneLibreriaListener listner;
+	private Thread T;
 	
 	public GestioneLibreria(){
 		l=Libreria.getIstance();
@@ -64,7 +65,8 @@ public class GestioneLibreria extends JPanel {
 		aggiungi.addActionListener(listner);
 		aggiungi.setActionCommand(GestioneLibreriaListener.ACTION_ADD);
 		setLibroEdit();
-		
+		T=new Thread(this);
+		T.start();
 	}
 	public ButtonGroup getGroup(){
 		return group;
@@ -242,5 +244,29 @@ public class GestioneLibreria extends JPanel {
 		p2.add(cancella);
 		p2.add(aggiungi);
 		this.repaint();
+	}
+	@Override
+	public void run() {
+		while(true){
+			try {
+				T.sleep(1000);
+				if(!this.isShowing()){
+					if(group1.getSelection().getActionCommand().equals(GestioneLibreriaListener.RADIO_LIBRO)){
+						setLibroEdit();
+					}
+					else if(group1.getSelection().getActionCommand().equals(GestioneLibreriaListener.RADIO_AUTORE)){
+						setAutoreEdit();
+					}
+					else if(group1.getSelection().getActionCommand().equals(GestioneLibreriaListener.RADIO_CASA)){
+						setCasa();
+					}
+					else{
+						setGenere();
+					}
+				}
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

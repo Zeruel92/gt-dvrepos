@@ -13,6 +13,7 @@ import it.unisalento.model.Autore;
 import it.unisalento.model.CasaEditrice;
 import it.unisalento.model.Genere;
 import it.unisalento.model.Libro;
+import it.unisalento.view.GestioneLibreria;
 import it.unisalento.view.ModificaForm;
 import it.unisalento.view.UserInterface;
 
@@ -88,6 +89,7 @@ public class LibreriaManager {
 			int rs=db.inserisciNuovo(query);
 			if(rs!=-1){
 				JOptionPane.showMessageDialog(null, "Cancellazione riuscita");
+				au.update();
 			}
 			else JOptionPane.showMessageDialog(null, "Cancellazione non riuscita");
 		}
@@ -102,6 +104,7 @@ public class LibreriaManager {
 			int rs=db.inserisciNuovo(query);
 			if(rs!=-1){
 				JOptionPane.showMessageDialog(null, "Cancellazione riuscita");
+				caseed.update();
 			}
 			else JOptionPane.showMessageDialog(null, "Cancellazione non riuscita");
 		}
@@ -116,6 +119,7 @@ public class LibreriaManager {
 			int rs=db.inserisciNuovo(query);
 			if(rs!=-1){
 				JOptionPane.showMessageDialog(null, "Cancellazione riuscita");
+				gen.update();
 			}
 			else JOptionPane.showMessageDialog(null, "Cancellazione non riuscita");
 		}
@@ -128,6 +132,7 @@ public class LibreriaManager {
 		int rs=db.inserisciNuovo(query);
 		if(rs!=-1){
 			JOptionPane.showMessageDialog(null, "Inserimento riuscito");
+			au.update();
 		}
 		else JOptionPane.showMessageDialog(null, "Inserimento non riuscito");
 	}
@@ -140,6 +145,7 @@ public class LibreriaManager {
 		int rs=db.inserisciNuovo(query);
 		if(rs!=-1){
 			JOptionPane.showMessageDialog(null, "Modifica riuscita");
+			au.update();
 		}
 		else JOptionPane.showMessageDialog(null, "Modifica non riuscita");
 	}
@@ -150,6 +156,7 @@ public class LibreriaManager {
 		int rs=db.inserisciNuovo(query);
 		if(rs!=-1){
 			JOptionPane.showMessageDialog(null, "Inserimento riuscito");
+			gen.update();
 		}
 		else JOptionPane.showMessageDialog(null, "Inserimento non riuscito");
 	}
@@ -161,6 +168,7 @@ public class LibreriaManager {
 		int rs=db.inserisciNuovo(query);
 		if(rs!=-1){
 			JOptionPane.showMessageDialog(null, "Modifica riuscita");
+			gen.update();
 		}
 		else JOptionPane.showMessageDialog(null, "Modifica non riuscita");
 	}
@@ -172,6 +180,7 @@ public class LibreriaManager {
 		int rs=db.inserisciNuovo(query);
 		if(rs!=-1){
 			JOptionPane.showMessageDialog(null, "Inserimento riuscito");
+			caseed.update();
 		}
 		else JOptionPane.showMessageDialog(null, "Inserimento non riuscito");
 	}
@@ -184,6 +193,7 @@ public class LibreriaManager {
 		int rs=db.inserisciNuovo(query);
 		if(rs!=-1){
 			JOptionPane.showMessageDialog(null, "Modifica riuscita");
+			caseed.update();
 		}
 		else JOptionPane.showMessageDialog(null, "Modifica non riuscita");
 	}
