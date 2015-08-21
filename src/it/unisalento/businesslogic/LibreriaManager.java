@@ -40,6 +40,7 @@ public class LibreriaManager {
 		int rs=db.inserisciNuovo(query);
 		if(rs!=-1){
 			JOptionPane.showMessageDialog(null, "Inserimento riuscito");
+			lib.update();
 		}
 		else JOptionPane.showMessageDialog(null, "Inserimento non riuscito");
 	}
@@ -58,6 +59,7 @@ public class LibreriaManager {
 		int rs=db.inserisciNuovo(query);
 		if(rs!=-1){
 			JOptionPane.showMessageDialog(null, "Modifica riuscita");
+			lib.update();
 		}
 		else JOptionPane.showMessageDialog(null, "Modifica non riuscita");
 	}
@@ -71,6 +73,7 @@ public class LibreriaManager {
 			int rs=db.inserisciNuovo(query);
 			if(rs!=-1){
 				JOptionPane.showMessageDialog(null, "Cancellazione riuscita");
+				lib.update();
 			}
 			else JOptionPane.showMessageDialog(null, "Cancellazione non riuscita");
 		}

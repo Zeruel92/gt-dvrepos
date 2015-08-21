@@ -19,15 +19,34 @@ import it.unisalento.model.CasaEditrice;
 import it.unisalento.model.Genere;
 import it.unisalento.model.Libro;
 
-public class Catalogo extends JPanel {
+public class Catalogo extends JPanel implements Runnable {
+	
 	private JPanel center;
 	private JPanel south;
 	private JButton addchart;
 	private JButton search;
 	private Libreria lib;
 	private Vector<JCheckBox> selection;
-
+	private Thread T;
+	
 	public Catalogo(){
+		build();
+		Thread T=new Thread(this);
+		T.start();
+	}
+	
+	public Vector<JCheckBox> getSelezionati(){
+		Vector<JCheckBox> selezionati=new Vector<JCheckBox>();
+		for (int i=0;i< selection.size();i++){
+			if(selection.elementAt(i).isSelected()){
+				selezionati.addElement(selection.elementAt(i));
+			}
+		}
+		return selezionati;
+	}
+	
+	private void build(){
+		this.removeAll();
 		this.setLayout(new BorderLayout());
 		center=new JPanel();
 		this.add(center, BorderLayout.NORTH);
@@ -78,14 +97,18 @@ public class Catalogo extends JPanel {
 			center.add(giac);
 		}
 	}
-	public Vector<JCheckBox> getSelezionati(){
-		Vector<JCheckBox> selezionati=new Vector<JCheckBox>();
-		for (int i=0;i< selection.size();i++){
-			if(selection.elementAt(i).isSelected()){
-				selezionati.addElement(selection.elementAt(i));
+	@Override
+	public void run() {
+		try{
+			while(true){
+				T.sleep(1000);
+			if(!this.isShowing()){
+				build();
 			}
+			}
+		}catch(Exception e){
+			e.printStackTrace();
 		}
-		return selezionati;
 	}
 }
 //TODO Ricerca di elementi
