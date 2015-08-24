@@ -27,15 +27,13 @@ public class SearchListener implements ActionListener{
 
 			tipo=s.getTipo();
 			stringa=s.getStringa();
-			
-			System.out.println(tipo);
-			System.out.println(stringa);
-				/*try {
+	
+				try {
 					Research r= new Research(tipo, stringa);
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				}*/
+				}
 		}
 }
 }
