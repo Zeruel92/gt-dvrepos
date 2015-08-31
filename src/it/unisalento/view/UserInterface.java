@@ -23,6 +23,7 @@ public class UserInterface extends JFrame {
 		carrello=new Carrello();
 		registrovendite= new RegistroVendite();
 		gestionelibreria=new GestioneLibreria();
+		gestioneaddetti=new GestioneAddetti();
 		add(schede);
 		if(u.getTipo()==0)
 		{
