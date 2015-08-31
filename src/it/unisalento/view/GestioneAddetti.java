@@ -13,12 +13,13 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.border.Border;
 
 public class GestioneAddetti extends JPanel {
 	
 	private JPanel p0,p1;
 	private JButton b0,b1,b2;
-	private JLabel l0,l1,l2;
+	private JLabel l0,l1;
 	private Vector<JRadioButton> rb;
 	private ButtonGroup group;
 	private Vector<JComboBox> combo;
@@ -34,7 +35,6 @@ public class GestioneAddetti extends JPanel {
 		p0.add(new JLabel());
 		p0.add(l0);
 		p0.add(l1);
-		//p0.add(l2);
 		users=Utenti.getIstance();
 		for(int i=0;i<users.getDim();i++){
 			UListModel u=users.getUtente(i);
@@ -42,7 +42,16 @@ public class GestioneAddetti extends JPanel {
 			p0.add(new JLabel(u.getEmail()));
 			p0.add(new JLabel(Integer.toString(u.getTipo())));
 		}
+		b0=new JButton("Aggiungi");
+		b1=new JButton("Cancella");
+		b2=new JButton("Modifica");
+		p1=new JPanel();
+		p1.setLayout(new GridLayout(0,3));
+		p1.add(b0);
+		p1.add(b2);
+		p1.add(b1);
 		this.add(p0,BorderLayout.NORTH);
+		this.add(p1,BorderLayout.SOUTH);
 	}
 }
 //TODO Gestione Addetti
