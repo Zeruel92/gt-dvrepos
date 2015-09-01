@@ -9,8 +9,8 @@ import java.awt.event.ActionListener;
 
 public class CatalogoListener implements ActionListener {
 	
-	public static final String ACTION_ADD="vyfsfkj";
-	public static final String ACTION_SEARCH="shuduai";
+	public static final String ACTION_ADD="aggiungi";
+	public static final String ACTION_SEARCH="cerca";
 	private Catalogo c;
 	
 	public CatalogoListener(Catalogo c){

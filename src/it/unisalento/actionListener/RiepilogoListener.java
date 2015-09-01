@@ -14,8 +14,8 @@ import javax.swing.JOptionPane;
 
 public class RiepilogoListener implements ActionListener {
 
-	public static final String ACTION_CONFIRM="gesu�unbravoragazzo";
-	public static final String ACTION_CANCEL="seeculuculu!!!!";
+	public static final String ACTION_CONFIRM="conferma";
+	public static final String ACTION_CANCEL="annulla";
 	
 	private Riepilogo r;
 	private RegistroManager reg;
