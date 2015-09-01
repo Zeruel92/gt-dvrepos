@@ -59,8 +59,5 @@ public class UserInterface extends JFrame {
 		//setSize(400,400);
 		this.pack();
 		setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-		//TODO ELIMINARE DEBUGSETTINGS
-		//LINEA DI DEBUG
-		schede.setSelectedIndex(3);
 	}
 }
