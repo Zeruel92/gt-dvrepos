@@ -26,8 +26,13 @@ public class GestioneAddetti extends JPanel {
 	private Utenti users;
 	
 	public GestioneAddetti(){
-		this.setLayout(new BorderLayout());
+		updateInterface();
+		
+	}
+	public void updateInterface(){
+		this.removeAll();
 		p0=new JPanel();
+		this.setLayout(new BorderLayout());
 		p0.setLayout(new GridLayout(0,3));
 		this.add(p0);
 		l0=new JLabel("Email");
@@ -63,7 +68,6 @@ public class GestioneAddetti extends JPanel {
 		this.add(p0,BorderLayout.NORTH);
 		this.add(p1,BorderLayout.SOUTH);
 	}
-
 	public ButtonGroup getGroup() {
 		return group;
 	}

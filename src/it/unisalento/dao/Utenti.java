@@ -27,6 +27,7 @@ public class Utenti {
 			update();
 		}
 		public void update(){
+			lista.removeAllElements();
 			ResultSet rs=db.eseguiQuery(query);
 			try {
 				while(rs.next()){
