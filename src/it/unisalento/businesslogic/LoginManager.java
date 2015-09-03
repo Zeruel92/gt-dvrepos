@@ -3,6 +3,8 @@ package it.unisalento.businesslogic;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import it.unisalento.dbinterface.DBManager;
 import it.unisalento.model.Utente;
 
@@ -29,7 +31,19 @@ public class LoginManager {
 			
 			u=new Utente(idUtente,nome,cognome,codfisc,email,password,tipo,citta,provincia,telefono,indirizzo);
 			status=true;
+			query="Select distinct r.idRichieste as id, l.titolo as titolo from libro as l , utente as u,richieste as r where r.idUtente="+u.getIdutente()+" and l.idLibro=r.idLibro and l.giacenza>0;";
+			rs=DB.getIstance().eseguiQuery(query);
+			if(rs.next()){
+				String richieste="Il/i Libro/i :\n";
+				do{
+					richieste+=rs.getString("titolo")+"\n";
+					DB.getIstance().inserisciNuovo("Delete from Richieste where idRichieste="+rs.getInt("id"));
+				}while(rs.next());
+				richieste+="Sono di nuovo disponibili, puoi consultare il catalogo per completare l'acquisto";
+				JOptionPane.showMessageDialog(null, richieste);
+			}
 		}
+		
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
