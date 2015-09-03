@@ -71,6 +71,7 @@ public class DBManager {
 	public static void closeConnection(){
 		try {
 			connect.close();
+			istance=null;
 			System.out.println("Connessione al DB Chiusa");
 		} catch (SQLException e) {
 			e.printStackTrace();

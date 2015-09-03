@@ -3,6 +3,7 @@ package it.unisalento.view;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
+import it.unisalento.actionListener.UIListener;
 import it.unisalento.model.Utente;
 
 public class UserInterface extends JFrame {
@@ -55,9 +56,7 @@ public class UserInterface extends JFrame {
 			schede.addTab("Gestione Addetti", gestioneaddetti);
 			schede.addTab("Gestione Libreria", gestionelibreria);
 		}
-		
-		//setSize(400,400);
 		this.pack();
-		setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+		this.addWindowListener(new UIListener());
 	}
 }
