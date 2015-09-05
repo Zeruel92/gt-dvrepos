@@ -6,8 +6,10 @@ import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import it.unisalento.dao.Libreria;
 import it.unisalento.dbinterface.DBManager;
 import it.unisalento.view.SForm;
+import it.unisalento.view.Result;
 
 public class Research {
 	String tipo;
@@ -20,7 +22,10 @@ public class Research {
 		
 		if (tipo.equals("Titolo"))
 				{
-					String query="SELECT * from Libro as l WHERE titolo='"+stringa+"'";
+					String query="Select l.idLibro, l.titolo, g.idGenere, l.costo, l.giacenza, a.idAutore, e.idCasaEd as casaed\n"+
+							"from Libro as l, Autore as a, CasaEditrice as e, Genere as g \n"+
+							"where l.titolo='"+stringa+"' AND l.idAutore=a.idAutore and l.idCasaEd=e.idCasaEd and l.idGenere=g.idGenere \n"
+							+ "ORDER BY l.idLibro";
 					DBManager d=DBManager.getIstance();
 					ResultSet rs=d.eseguiQuery(query);
 							
@@ -31,17 +36,14 @@ public class Research {
 							lol.setSize(200, 200);
 							JOptionPane.showMessageDialog(lol, "Il libro da lei cercato non è presente in Catalogo!");
 						}
+							JFrame frame=new JFrame();
+							Libreria lib=Libreria.getIstance();
+							lib.update(query);
+							Result r=new Result();
+							frame.add(r);
+							frame.setVisible(true);
+							frame.pack();
 							
-						while (rs.next())
-						{
-							System.out.println(rs.getString("titolo"));							
-									
-								if(rs.isLast())
-								{
-									break;
-								}
-							
-						}
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
@@ -49,23 +51,27 @@ public class Research {
 	}
 		if (tipo.equals("Autore"))
 		{
-			String query="SELECT * from Libro as l JOIN Autore as a WHERE a.cognome='"+stringa+"' AND l.idAutore=a.idAutore";
+			String query="Select l.idLibro, l.titolo, g.idGenere, l.costo, l.giacenza, a.idAutore, e.idCasaEd as casaed\n"+
+					"from Libro as l, Autore as a, CasaEditrice as e, Genere as g \n"+
+					"where a.cognome='"+stringa+"' AND l.idAutore=a.idAutore and l.idCasaEd=e.idCasaEd and l.idGenere=g.idGenere \n"
+					+ "ORDER BY l.idLibro";
 			DBManager d=DBManager.getIstance();
 			ResultSet rs=d.eseguiQuery(query);
 					
 			try {
 				if (rs.getRow()=='0')
-					JOptionPane.showMessageDialog(null, "L'autore da lei cercato non è presente in Catalogo!");
-				while (rs.next())
 				{
-					System.out.println(rs.getString("titolo"));							
-							
-						if(rs.isLast())
-						{
-							break;
-						}
-					
+					lol.setVisible(true);
+					lol.setSize(200, 200);
+					JOptionPane.showMessageDialog(lol, "L'autore da lei cercato non è presente in catalogo!");
 				}
+					JFrame frame=new JFrame();
+					Libreria lib=Libreria.getIstance();
+					lib.update(query);
+					Result r=new Result();
+					frame.add(r);
+					frame.setVisible(true);
+					frame.pack();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -73,27 +79,30 @@ public class Research {
 		
 		if (tipo.equals("Genere"))
 		{
-			String query="SELECT * from Libro as l JOIN Genere as g WHERE g.Genere='"+stringa+"' AND l.idGenere=g.idGenere";
+			String query="Select l.idLibro, l.titolo, g.idGenere, l.costo, l.giacenza, a.idAutore, e.idCasaEd as casaed\n"+
+					"from Libro as l, Autore as a, CasaEditrice as e, Genere as g \n"+
+					"where g.Genere='"+stringa+"' AND l.idAutore=a.idAutore and l.idCasaEd=e.idCasaEd and l.idGenere=g.idGenere \n"
+					+ "ORDER BY l.idLibro";
 			DBManager d=DBManager.getIstance();
 			ResultSet rs=d.eseguiQuery(query);
 					
 			try {
 				if (rs.getRow()=='0')
-					JOptionPane.showMessageDialog(null, "Il genere da lei cercato non è presente in Catalogo!");
-				while (rs.next())
 				{
-					System.out.println(rs.getString("titolo"));							
-							
-						if(rs.isLast())
-						{
-							break;
-						}
-					
+					lol.setVisible(true);
+					lol.setSize(200, 200);
+					JOptionPane.showMessageDialog(lol, "Il genere da lei cercato non è presente in catalogo!");
 				}
+						JFrame frame=new JFrame();
+						Libreria lib=Libreria.getIstance();
+						lib.update(query);
+						Result r=new Result();
+						frame.add(r);
+						frame.setVisible(true);
+						frame.pack();	
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 }
 }
-
 }

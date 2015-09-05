@@ -63,12 +63,12 @@ public class Catalogo extends JPanel implements Runnable {
 		lib=Libreria.getIstance();
 		center.setLayout(new GridLayout(0,7));
 		center.add(new JLabel(" "));
-		center.add(new JLabel("Titolo"));
-		center.add(new JLabel("Autore"));
-		center.add(new JLabel("Casa Editrice"));
-		center.add(new JLabel("Genere"));
-		center.add(new JLabel("Prezzo"));
-		center.add(new JLabel("Giacenza"));
+		center.add(new JLabel("TITOLO"));
+		center.add(new JLabel("AUTORE"));
+		center.add(new JLabel("CASA EDITRICE"));
+		center.add(new JLabel("GENERE"));
+		center.add(new JLabel("PREZZO"));
+		center.add(new JLabel("GIACENZA"));
 		selection=new Vector<JCheckBox>();
 
 		for (int i=0;i<lib.getDim();i++){

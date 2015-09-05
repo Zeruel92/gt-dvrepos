@@ -15,7 +15,7 @@ public class Libreria {
 	private	ModificaForm modifica;
 	private DBManager db;
 	private static Libreria istance;
-	private final String query="Select l.idLibro, l.titolo, g.idGenere, l.costo, l.giacenza, a.idAutore, e.idCasaEd as casaed\n"+
+	public String query="Select l.idLibro, l.titolo, g.idGenere, l.costo, l.giacenza, a.idAutore, e.idCasaEd as casaed\n"+
 			"from Libro as l, Autore as a, CasaEditrice as e, Genere as g \n"+
 			"where l.idAutore=a.idAutore and l.idCasaEd=e.idCasaEd and l.idGenere=g.idGenere \n"
 			+ "ORDER BY l.idLibro";

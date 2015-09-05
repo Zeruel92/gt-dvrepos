@@ -92,12 +92,12 @@ public class GestioneLibreria extends JPanel implements Runnable{
 		p1.setLayout(new GridLayout(0,7));
 		this.add(p1,BorderLayout.CENTER);
 		p1.add(new JLabel(" "));
-		p1.add(new JLabel("Titolo"));
-		p1.add(new JLabel("Autore"));
-		p1.add(new JLabel("Casa Editrice"));
-		p1.add(new JLabel("Genere"));
-		p1.add(new JLabel("Prezzo"));
-		p1.add(new JLabel("Giacenza"));
+		p1.add(new JLabel("TITOLO"));
+		p1.add(new JLabel("AUTORE"));
+		p1.add(new JLabel("CASA EDITRICE"));
+		p1.add(new JLabel("GENERE"));
+		p1.add(new JLabel("PREZZO"));
+		p1.add(new JLabel("GIACENZA"));
 		for (int i=0; i < l.getDim(); i++){
 			Libro ll=l.getLibro(i);
 			JLabel titolo=new JLabel(ll.getTitolo());
@@ -148,8 +148,8 @@ public class GestioneLibreria extends JPanel implements Runnable{
 		p1.setLayout(new GridLayout(0,3));
 		this.add(p1,BorderLayout.CENTER);
 		p1.add(new JLabel());
-		p1.add(new JLabel("Nome Autore"));
-		p1.add(new JLabel("Cognome Autore"));
+		p1.add(new JLabel("NOME AUTORE"));
+		p1.add(new JLabel("COGNOME AUTORE"));
 		Autori a=Autori.getIstance();
 		for (int i=0; i < a.getDim(); i++){
 			Autore aa=a.getAutore(i);
@@ -187,8 +187,8 @@ public class GestioneLibreria extends JPanel implements Runnable{
 		p1.setLayout(new GridLayout(0,3));
 		this.add(p1,BorderLayout.CENTER);
 		p1.add(new JLabel());
-		p1.add(new JLabel("Nome Casa Editrice"));
-		p1.add(new JLabel("Partita IVA"));
+		p1.add(new JLabel("NOME CASA EDITRICE"));
+		p1.add(new JLabel("PARTITA IVA"));
 		CaseEditrici ee=CaseEditrici.getIstance();
 		for(int i=0;i<ee.getDim();i++){
 			CasaEditrice e=ee.getCasa(i);
