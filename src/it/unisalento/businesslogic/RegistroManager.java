@@ -36,9 +36,15 @@ public class RegistroManager {
 			date.setText(data.toString());
 			centro.add(date);
 			
-			String cliente=rs.getString("nome");
+			String nome=rs.getString("nome");
+			String cognome=rs.getString("cognome");
+			String citta=rs.getString("citta");
+			String provincia=rs.getString("provincia");
+			String tel=rs.getString("telefono");
+			String cod=rs.getString("codfisc");
+			String email=rs.getString("email");
 			JLabel infocliente=new JLabel();
-			infocliente.setText(cliente);
+			infocliente.setText("<html>" +nome+ " " +cognome+ "<br>" +citta+","+provincia+ "<br>" +tel+ "<br>" +cod+ "<br>" +email+ "</html>");
 			centro.add(infocliente);
 			
 			
