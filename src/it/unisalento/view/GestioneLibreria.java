@@ -1,6 +1,7 @@
 package it.unisalento.view;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.Vector;
 
@@ -91,13 +92,28 @@ public class GestioneLibreria extends JPanel implements Runnable{
 		JPanel p1=new JPanel();
 		p1.setLayout(new GridLayout(0,7));
 		this.add(p1,BorderLayout.CENTER);
+		
+		Font f=new Font("TimesRoman", Font.BOLD, 13);
 		p1.add(new JLabel(" "));
-		p1.add(new JLabel("TITOLO"));
-		p1.add(new JLabel("AUTORE"));
-		p1.add(new JLabel("CASA EDITRICE"));
-		p1.add(new JLabel("GENERE"));
-		p1.add(new JLabel("PREZZO"));
-		p1.add(new JLabel("GIACENZA"));
+		
+		JLabel uno=new JLabel("TITOLO");
+		uno.setFont(f);
+		p1.add(uno);
+		JLabel due=new JLabel("AUTORE");
+		due.setFont(f);
+		p1.add(due);
+		JLabel tre=new JLabel("CASA EDITRICE");
+		tre.setFont(f);
+		p1.add(tre);
+		JLabel quattro=new JLabel("GENERE");
+		quattro.setFont(f);
+		p1.add(quattro);
+		JLabel cinque=new JLabel("PREZZO");
+		cinque.setFont(f);
+		p1.add(cinque);
+		JLabel sei=new JLabel("GIACENZA");
+		sei.setFont(f);
+		p1.add(sei);
 		for (int i=0; i < l.getDim(); i++){
 			Libro ll=l.getLibro(i);
 			JLabel titolo=new JLabel(ll.getTitolo());

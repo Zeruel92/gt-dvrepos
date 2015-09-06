@@ -27,10 +27,15 @@ public class RegistroVendite extends JPanel {
 		JPanel nord= new JPanel();
 		nord.setLayout(new GridLayout(1,5));
 		this.add(nord, BorderLayout.NORTH);
-		JLabel uno=new JLabel("Nome Libro");
-		JLabel due= new JLabel("Data di Vendita");
-		JLabel tre= new JLabel("Info Cliente");
-		JLabel quattro= new JLabel("Prezzo Libro");
+		Font f=new Font("TimesRoman", Font.BOLD, 13);
+		JLabel uno=new JLabel("NOME LIBRO");
+		uno.setFont(f);
+		JLabel due= new JLabel("DATA DI VENDITA");
+		due.setFont(f);
+		JLabel tre= new JLabel("INFO CLIENTE");
+		tre.setFont(f);
+		JLabel quattro= new JLabel("PREZZO LIBRO");
+		quattro.setFont(f);
 	
 		nord.add(uno);
 		nord.add(due);

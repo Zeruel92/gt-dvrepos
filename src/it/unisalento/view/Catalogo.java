@@ -1,6 +1,7 @@
 package it.unisalento.view;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.Vector;
 
@@ -62,13 +63,29 @@ public class Catalogo extends JPanel implements Runnable {
 		south.add(search);
 		lib=Libreria.getIstance();
 		center.setLayout(new GridLayout(0,7));
-		center.add(new JLabel(" "));
-		center.add(new JLabel("TITOLO"));
-		center.add(new JLabel("AUTORE"));
-		center.add(new JLabel("CASA EDITRICE"));
-		center.add(new JLabel("GENERE"));
-		center.add(new JLabel("PREZZO"));
-		center.add(new JLabel("GIACENZA"));
+		
+		Font f=new Font("TimesRoman", Font.BOLD, 13);
+		JLabel uno=new JLabel(" ");
+		uno.setFont(f);
+		center.add(uno);
+		JLabel due=new JLabel("TITOLO");
+		due.setFont(f);
+		center.add(due);
+		JLabel tre=new JLabel("AUTORE");
+		tre.setFont(f);
+		center.add(tre);
+		JLabel quattro=new JLabel("CASA EDITRICE");
+		quattro.setFont(f);
+		center.add(quattro);
+		JLabel cinque=new JLabel("GENERE");
+		cinque.setFont(f);
+		center.add(cinque);
+		JLabel sei=new JLabel("PREZZO");
+		sei.setFont(f);
+		center.add(sei);
+		JLabel sette=new JLabel("GIACENZA");
+		sette.setFont(f);
+		center.add(sette);
 		selection=new Vector<JCheckBox>();
 
 		for (int i=0;i<lib.getDim();i++){

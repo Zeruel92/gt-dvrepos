@@ -37,6 +37,8 @@ public class RegListener implements ActionListener {
 				String cod=r.getCod();
 				String sql="Insert into utente values (null,\""+nome+"\",\""+cognome+"\",\""+cod+"\",\""+email+"\",\""+pass1+"\","+1+",\""+citta+"\",\""+provincia+"\",\""+tel+"\",\""+indirizzo+"\")";
 				DBManager.getIstance().inserisciNuovo(sql);
+				r.setVisible(false);
+				Login l=new Login();
 				
 					
 			}

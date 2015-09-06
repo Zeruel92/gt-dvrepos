@@ -15,6 +15,7 @@ public class Registrazione extends JFrame
 	private JTextField temail, tnome, tcognome, tcod, tcitta, tprovincia, ttel, tindirizzo;
 	private JPasswordField tpass,tpass2;
 	private JButton ok, canc;
+	private Font f;
 	
 	public Registrazione()
 	{
@@ -26,15 +27,21 @@ public class Registrazione extends JFrame
 		JPanel k=new JPanel();
 		p=new JPanel();
 		this.add(k);
-		this.p.setLayout(new GridLayout(10,2));
+		this.p.setLayout(new GridLayout(11,2));
 		JPanel b=new JPanel();
 		k.setLayout(new BorderLayout());
 		
 			
 		//Creazione dei componenti
 		
-		JLabel intro=new JLabel("Inserire correttamente i dati richiesti");
-	
+		Font f=new Font("TimesRoman", Font.PLAIN, 14);
+		JLabel intro=new JLabel("Inserire correttamente i dati richiesti.");
+		intro.setFont(f);
+		
+		JLabel vuoto1=new JLabel("");
+		JLabel vuoto2=new JLabel("");
+		p.add(vuoto1);
+		p.add(vuoto2);
 		email=new JLabel("E-mail valida: ");
 		p.add(email);
 		temail=new JTextField(20);
@@ -98,6 +105,7 @@ public class Registrazione extends JFrame
 		
 		//Aggiungo i pannelli a k
 		k.add(intro, BorderLayout.NORTH);
+		
 		k.add(p, BorderLayout.CENTER);
 		k.add(b, BorderLayout.SOUTH);
 		

@@ -1,6 +1,7 @@
 package it.unisalento.view;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.util.TimeZone; 
 import java.util.Calendar;
 import java.awt.GridLayout;
@@ -58,12 +59,24 @@ public class Carrello extends JPanel implements Runnable{
 	
 	public void aggiorna(){
 		north.removeAll();
+		
+		Font f=new Font("TimesRoman", Font.BOLD, 13);
 		north.add(new JLabel(" "));
-		north.add(new JLabel("Titolo"));
-		north.add(new JLabel("Autore"));
-		north.add(new JLabel("Casa Editrice"));
-		north.add(new JLabel("Genere"));
-		north.add(new JLabel("Prezzo"));
+		JLabel uno=new JLabel("TITOLO");
+		uno.setFont(f);
+		north.add(uno);
+		JLabel due=new JLabel("AUTORE");
+		due.setFont(f);
+		north.add(due);
+		JLabel tre=new JLabel("CASA EDITRICE");
+		tre.setFont(f);
+		north.add(tre);
+		JLabel quattro=new JLabel("GENERE");
+		quattro.setFont(f);
+		north.add(quattro);
+		JLabel cinque=new JLabel("PREZZO");
+		cinque.setFont(f);
+		north.add(cinque);
 		JLabel titolo,autore,casaed,genere,prezzo;
 		JButton rimuovi;
 		for (int i=0;i<chart.getDim();i++){
