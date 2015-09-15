@@ -31,6 +31,15 @@ public class Catalogo extends JPanel implements Runnable {
 	private Thread T;
 	
 	public Catalogo(){
+		south=new JPanel();
+		addchart=new JButton("Aggiungi al Carrello");
+		addchart.addActionListener(new CatalogoListener(this));
+		addchart.setActionCommand(CatalogoListener.ACTION_ADD);
+		search=new JButton("Cerca");
+		search.addActionListener(new CatalogoListener(this));
+		search.setActionCommand(CatalogoListener.ACTION_SEARCH);
+	    south.add(addchart);
+	    south.add(search);
 		build();
 		Thread T=new Thread(this);
 		T.start();
@@ -46,21 +55,15 @@ public class Catalogo extends JPanel implements Runnable {
 		return selezionati;
 	}
 	
-	private void build(){
+	public void build(){
 		this.removeAll();
 		this.setLayout(new BorderLayout());
 		center=new JPanel();
 		this.add(center, BorderLayout.NORTH);
-		south=new JPanel();
+		
 		this.add(south, BorderLayout.SOUTH);
-		addchart=new JButton("Aggiungi al Carrello");
-		addchart.addActionListener(new CatalogoListener(this));
-		addchart.setActionCommand(CatalogoListener.ACTION_ADD);
-		search=new JButton("Cerca");
-		search.addActionListener(new CatalogoListener(this));
-		search.setActionCommand(CatalogoListener.ACTION_SEARCH);
-		south.add(addchart);
-		south.add(search);
+		
+		
 		lib=Libreria.getIstance();
 		center.setLayout(new GridLayout(0,7));
 		
@@ -113,6 +116,21 @@ public class Catalogo extends JPanel implements Runnable {
 			center.add(prezzo);
 			center.add(giac);
 		}
+	
+		
+	}
+	
+	public void setSouth ()
+	{
+		this.remove(south);
+		this.south=new JPanel();
+		south.add(addchart);
+		south.add(search);
+		JButton canc=new JButton("Annulla");
+		canc.setActionCommand("canc");
+		canc.addActionListener(new CatalogoListener(this));
+		south.add(canc);
+		this.add(south,BorderLayout.SOUTH);
 	}
 	@Override
 	public void run() {

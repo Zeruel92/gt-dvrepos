@@ -30,10 +30,16 @@ public class SearchListener implements ActionListener{
 	
 				try {
 					Research r= new Research(tipo, stringa);
+					s.setVisible(false);
+					
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+		}
+		else if (e.getActionCommand().equals("canc"))
+		{
+			s.setVisible(false);
 		}
 }
 }

@@ -46,10 +46,17 @@ public class SForm extends JFrame
 		sotto=new JTextField();
 		this.add(sotto, BorderLayout.CENTER);
 		
+		JPanel bott=new JPanel();
+		
 		JButton cerca=new JButton("Cerca");
 		cerca.setActionCommand("search");
 		cerca.addActionListener(new SearchListener(this));
-		this.add(cerca, BorderLayout.SOUTH);
+		JButton annulla=new JButton("Annulla");
+		annulla.setActionCommand("canc");
+		annulla.addActionListener(new SearchListener(this));
+		bott.add(cerca);
+		bott.add(annulla);
+		this.add(bott, BorderLayout.SOUTH);
 		
 		setVisible(true);
 		pack();
