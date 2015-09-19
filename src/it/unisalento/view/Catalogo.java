@@ -137,7 +137,7 @@ public class Catalogo extends JPanel implements Runnable {
 		try{
 			while(true){
 				T.sleep(1000);
-			if(!this.isShowing()){
+			if(!this.isFocusOwner()){
 				build();
 			}
 			}

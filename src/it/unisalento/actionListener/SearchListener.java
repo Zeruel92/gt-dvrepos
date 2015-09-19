@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 public class SearchListener implements ActionListener{
 	private SForm s;
 	public String tipo, stringa;
@@ -30,7 +32,7 @@ public class SearchListener implements ActionListener{
 				try {
 					Research r= new Research(tipo, stringa);
 					s.setVisible(false);
-					
+					JOptionPane.showMessageDialog(null, "Ricerca Completata!");
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
