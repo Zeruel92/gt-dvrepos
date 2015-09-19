@@ -45,6 +45,6 @@ INSERT INTO `Libreria`.`Utente` (`idUtente`, `nome`, `cognome`, `codfisc`, `emai
  INSERT INTO `Libreria`.`Utente` (`idUtente`, `nome`, `cognome`, `codfisc`, `email`, `password`, `tipo`, `citta`, `provincia`, `telefono`, `indirizzo`)
  VALUES (NULL, 'Addetto', 'liberia', 'addettovend1111', 'adetto_vendite@libreria.it', '48f84ec95d9499e425590bbf1af27eff', '1', 'lecce', 'LE', '0123456789', 'Via Monteroni, 6');
  INSERT INTO `Libreria`.`Utente` (`idUtente`, `nome`, `cognome`, `codfisc`, `email`, `password`, `tipo`, `citta`, `provincia`, `telefono`, `indirizzo`)
- VALUES (NULL, 'Gabriele', 'Tramonte', 'trmgrl999999we9w9e', 'gabry.t92@gmail.com', '8bc674f8b3278ec1de6112accd643b4f', '1', 'surbo', 'LE', '3896441325', 'Via ugo la malfa, 76');
+ VALUES (NULL, 'Gabriele', 'Tramonte', 'trmgrl999we9w9e', 'gabry.t92@gmail.com', '8bc674f8b3278ec1de6112accd643b4f', '1', 'surbo', 'LE', '0832364027', 'Via ugo la malfa, 76');
  INSERT INTO `Libreria`.`Utente` (`idUtente`, `nome`, `cognome`, `codfisc`, `email`, `password`, `tipo`, `citta`, `provincia`, `telefono`, `indirizzo`)
- VALUES (NULL, 'Daniele', 'Viscuso', 'vscdnl8rrr8we88266', 'dany_v@live.it', '679ab793796da4cbd0dda3d0daf74ec1', '1', 'lecce', 'LE', '3382650642', 'Via vecchia frigole, 6');
+ VALUES (NULL, 'Daniele', 'Viscuso', 'vscdnlrr8we88266', 'dany_v@live.it', '679ab793796da4cbd0dda3d0daf74ec1', '1', 'lecce', 'LE', '0832353344', 'Via vecchia frigole, 6');
