@@ -1,6 +1,7 @@
 package it.unisalento.view;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.Vector;
@@ -9,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JMenu;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 
@@ -29,7 +31,6 @@ public class Catalogo extends JPanel implements Runnable {
 	private Libreria lib;
 	private Vector<JCheckBox> selection;
 	private Thread T;
-	
 	public Catalogo(){
 		south=new JPanel();
 		addchart=new JButton("Aggiungi al Carrello");
@@ -59,16 +60,11 @@ public class Catalogo extends JPanel implements Runnable {
 		this.removeAll();
 		this.setLayout(new BorderLayout());
 		center=new JPanel();
-		this.add(center, BorderLayout.NORTH);
-		
 		this.add(south, BorderLayout.SOUTH);
-		
-		
 		lib=Libreria.getIstance();
 		center.setLayout(new GridLayout(0,7));
-		
 		Font f=new Font("TimesRoman", Font.BOLD, 13);
-		JLabel uno=new JLabel(" ");
+		JLabel uno=new JLabel("");
 		uno.setFont(f);
 		center.add(uno);
 		JLabel due=new JLabel("TITOLO");
@@ -116,7 +112,7 @@ public class Catalogo extends JPanel implements Runnable {
 			center.add(prezzo);
 			center.add(giac);
 		}
-	
+		this.add(center, BorderLayout.NORTH);
 		
 	}
 	

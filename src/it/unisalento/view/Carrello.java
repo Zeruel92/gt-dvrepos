@@ -23,6 +23,7 @@ import it.unisalento.model.Utente;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 public class Carrello extends JPanel implements Runnable{
