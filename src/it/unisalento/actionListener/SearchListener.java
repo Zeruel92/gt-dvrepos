@@ -19,7 +19,6 @@ public class SearchListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		// TODO Auto-generated method stub
 		if (e.getActionCommand().equals("search"))
 		{
 
@@ -33,7 +32,6 @@ public class SearchListener implements ActionListener{
 					s.setVisible(false);
 					
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 		}

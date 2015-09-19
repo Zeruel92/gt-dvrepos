@@ -46,6 +46,7 @@ public class UserInterface extends JFrame {
 			schede.addTab("Catalogo", catalogo);
 			schede.addTab("Carrello", carrello);
 			schede.addTab("Registro Vendite", registrovendite);
+			schede.addTab("Richieste D'ordine", new RichiesteDOrdine());
 			}
 		else if(u.getTipo()==3)
 		{
@@ -55,6 +56,7 @@ public class UserInterface extends JFrame {
 			schede.addTab("Registro Vendite", registrovendite);
 			schede.addTab("Gestione Addetti", gestioneaddetti);
 			schede.addTab("Gestione Libreria", gestionelibreria);
+			schede.addTab("Richieste D'ordine", new RichiesteDOrdine());
 		}
 		this.pack();
 		this.addWindowListener(new UIListener());

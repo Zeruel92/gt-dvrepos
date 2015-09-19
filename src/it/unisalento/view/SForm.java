@@ -78,7 +78,6 @@ public class SForm extends JFrame
 
 		@Override
 		public void itemStateChanged(ItemEvent arg0) {
-			// TODO Auto-generated method stub
 			tipo=type;
 		}
 		

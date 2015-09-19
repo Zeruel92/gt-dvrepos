@@ -146,4 +146,3 @@ public class Catalogo extends JPanel implements Runnable {
 		}
 	}
 }
-//TODO Ricerca di elementi
